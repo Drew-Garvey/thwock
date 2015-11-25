@@ -1,0 +1,40 @@
+{
+  "devices": {
+    "browser": {
+      "name" : "Browser Wndow",
+      "selector" : "#browser",
+      "has-landscape" : false,
+      "landscape-width" : null,
+      "portrait-width" : "1400px"
+    },
+    "macbook": {
+      "name" : "Macbook Pro",
+      "selector" : "#macbook",
+      "has-landscape" : false,
+      "landscape-width" : null,
+      "portrait-width" : "1280px"
+    },
+    "iPad": {
+      "name" : "iPad",
+      "selector" : "#ipad",
+      "has-landscape" : true,
+      "landscape-width" : "1024px",
+      "portrait-width" : "768px"
+    },
+    "iPhone": {
+      "name" : "iPhone 6",
+      "selector" : "#iphone6",
+      "has-landscape" : true,
+      "landscape-width" : "667px",
+      "portrait-width" : "375px"
+      
+    },
+    "samsung-galaxy": {
+      "name" : "Samsung Galaxy 5",
+      "selector" : "#s5",
+      "has-landscape" : true,
+      "landscape-width" : "568px",
+      "portrait-width" : "320px"
+    }
+  }
+}

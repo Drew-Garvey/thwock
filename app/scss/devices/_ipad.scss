@@ -1,0 +1,101 @@
+// Css for iPad
+@import '../base/mixins';
+
+.marvel-device.ipad {
+	width: 576px;
+	height: 768px;
+	padding: 90px 25px;
+	background: #242324;
+	@include border-radius(44px);
+
+	&:before{
+		width: calc(100% - 8px);
+		height: calc(100% - 8px);
+		position: absolute;
+		content: '';
+		display: block;
+		top: 4px;
+		left: 4px;
+		@include border-radius(40px);
+		background: #fff;
+	}
+}
+
+.marvel-device.ipad .camera {
+	background: #d9dbdc;
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	top: 44px;
+	left: 50%;
+	margin-left: -5px;
+	@include border-radius(100%);
+}
+
+.marvel-device.ipad .top-bar, .marvel-device.ipad .bottom-bar{
+	display: none;
+}
+
+.marvel-device.ipad .home {
+	background: #fff;
+	@include border-radius(36px);
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	left: 50%;
+	margin-left: -25px;
+	bottom: 22px;
+	/*
+	&:after {
+		width: 15px;
+		height: 15px;
+		margin-top: -8px;
+		margin-left: -8px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		@include border-radius(4px);
+		position: absolute;
+		display: block;
+		content: '';
+		top: 50%;
+		left: 50%;
+	}
+	*/
+}
+
+.marvel-device.ipad.landscape{
+	height: 576px;
+	width: 768px;
+	padding: 25px 90px;
+
+	.camera {
+		left: calc(100% - 44px);
+		top: 50%;
+		margin-left: 0;
+		margin-top: -5px;
+	}
+
+	.home {
+		top: 50%;
+		left: 22px;
+		margin-left: 0;
+		margin-top: -25px;
+	}
+}
+
+.marvel-device.ipad.silver{
+	background: #d9dbdc;
+
+	&:before{
+		background: #fcfcfc;
+	}
+
+	.home{
+		background: #fcfcfc;
+		-webkit-box-shadow: inset 0 0 0 4px #d9dbdc;
+		box-shadow: inset 0 0 0 4px #d9dbdc;
+
+		&:after{
+			border: 1px solid rgba(0, 0, 0, 0.2);
+		}
+	}
+}

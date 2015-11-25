@@ -1,0 +1,231 @@
+@import 'base/variables';
+@import 'base/mixins';
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+body{
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  //font-size: 14px;
+  text-align: center;
+  color: #1e1e1e;
+}
+
+html, body {
+  height: 100%;
+}
+
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.cf {
+  *zoom: 1;
+}
+
+.marvel-device, .marvel-device div, *:before, *:after {
+  -webkit-transition: all 500ms cubic-bezier(0.175, 0.885, 0.320, 1);
+  -webkit-transition: all 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  -moz-transition: all 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  -o-transition: all 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  transition: all 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+}
+
+section.device {
+  //background: #1e1e1e;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  height: 80%;
+  //display: table;
+  position: relative;
+}
+
+section .wrap {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding: 3% 0;
+}
+
+.device__wrap {
+  position: relative;
+}
+
+.single-device__wrap {
+  display: none;
+}
+
+.single-device__wrap.current--device {
+  display: block;
+}
+
+.switch {
+  width: 100%;
+  margin: 0 auto;
+}
+
+// Main Navigation
+.global-header {
+  width: 100%;
+  //height: 97px;
+  border-bottom: 3px solid $medium-grey;
+  background-color: $header-color;
+}
+
+.global-nav {
+  height: 97px;
+  border-bottom: 3px solid $medium-grey;
+
+  @include media($lg) {
+    height: auto;
+  }
+}
+
+.secondary-nav {
+  //padding: 2% 0;
+  clear: both;
+}
+
+.color-option__wrap {
+  width: 50%;
+  float: left;
+}
+
+.secondary-nav .color-input {
+  font-size: 9px;
+  padding: 0.1rem 0.5rem;
+  display: none;
+}
+
+.secondary-nav .color-label {
+  font-size: 0.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: $dark-grey;
+}
+
+.secondary-nav .color-sample {
+  display: inline-block;
+  height: 22px;
+  width: 22px;
+  border-radius: 22px;
+  border: 1px solid $light-grey;
+  vertical-align: middle;
+}
+
+.menu__option {
+  float: left;
+  width: 25%;
+  height: 97px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-right: 3px solid $medium-grey;
+
+  @include media($lg) {
+    float: none;
+    width: 100%;
+    border-right: none;
+    border-bottom: 3px solid $medium-grey;
+  }
+}
+
+.option-label {
+  margin-bottom: 1rem;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.update-screengrab-btn {
+  margin: 1.5rem 0;
+}
+
+.active {
+  color: $link-color;
+}
+
+.menu__option-right {
+  float: right;
+  display: inline-block;
+  width: 25%;
+  height: 97px;
+  padding: 1rem 5%;
+
+  @include media($md) {
+    float: none;
+    display: block;
+    width: 100%;
+  }
+}
+
+.menu__option-pull-left {
+  float: left;
+  display: inline-block;
+  width: 25%;
+  height: 97px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  @include media($md) {
+    float: none;
+    display: block;
+    width: 100%;
+  }
+}
+
+.selected-device__details {
+  display: inline-block;
+  text-align: left;
+}
+
+.selected-device__details .selected-device__name {
+  margin: 0.9rem 0 0 0;
+}
+
+.selected-device__details .selected-device__opt-width {
+  color: $dark-grey;
+}
+
+//pre {
+//  white-space: pre-wrap;       /* css-3 */
+//  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+//  white-space: -pre-wrap;      /* Opera 4-6 */
+//  white-space: -o-pre-wrap;    /* Opera 7 */
+//  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+//  background-color: rgb(25, 53, 73);
+//  color: white;
+//  border-radius: 6px;
+//  font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
+//}
+
+.grab-code-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  font-size: 12px;
+  border: none;
+  color: $black;
+  //background-color: darken($dark-grey, 20%);
+  background-color: $medium-grey;
+  border-radius: 0;
+
+  &:hover {
+    border: none;
+    color: $black;
+    background-color: darken($medium-grey, 10%);
+  }
+}

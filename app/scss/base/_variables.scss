@@ -1,0 +1,27 @@
+// Variables
+
+
+// Brand-colors
+$header-color: #fff;
+$white: #fff;
+$black: #000;
+$dark-grey: #868686;
+$medium-grey: #dddddd;
+$light-grey: #F1F1F1;
+$form-grey: #D2D2D2;
+$text-color: #000;
+$link-color: #62C612;
+$link-hover-color: lighten($link-color, 5%);
+$modal-overlay: rgba(255, 255, 255, 0.96);
+
+// Transitions
+$transition: all 500ms ease-out;
+
+// Layout
+$border-radius: 6px;
+$box-shadow: 0 1px 5px rgba(0,0,0,0.9);
+
+// Breakpoints
+$sm: 480px;
+$md: 720px;
+$lg: 999px;

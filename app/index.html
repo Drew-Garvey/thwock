@@ -1,0 +1,217 @@
+<html>
+<head>
+	<title>Ripe Devices</title>
+</head>
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<body>
+	<!-- MAIN HEADER -->
+	<header class="global-header cf">
+		<!-- PRIMARY NAV -->
+		<nav class="global-nav">
+			<!-- DEVICE SELECTOR -->
+			<div class="menu__option">
+				<label class="select" for="device-selector">
+					<select name="device-selector" id="device-selector">
+						<option value="browser">Browser Window</option>
+						<option value="macbook">Macbook Pro</option>
+						<option value="iPad">iPad</option>
+						<option value="iPhone">iPhone 6</option>
+						<option value="samsung-galaxy">Samsung Galaxy 5</option>
+					</select>
+				</label>
+			</div>
+			<!-- END: DEVICE SELECTOR -->
+			<!-- DEVICE ORIENTATION TOGGLE -->
+			<div class="menu__option">
+				<p class="option-label">Device Orientation</p>
+				<div class="switch orientation-toggle">
+					<small class="switch-label label-a">portrait</small>
+	  			<input id="device-orientation" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+	  			<label for="device-orientation"></label>
+	  			<small class="switch-label label-b">landscape</small>
+				</div>
+			</div>
+			<!-- END: DEVICE ORIENTATION TOGGLE -->
+			<!-- SCROLL TYPE OPTION -->
+			<div class="menu__option">
+				<p class="option-label">Scroll Type</p>
+				<div class="switch scroll-toggle">
+					<small class="switch-label label-a">Scroll</small>
+	  			<input id="scroll-option" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" value="scroll-on">
+	  			<label for="scroll-option"></label>
+	  			<small class="switch-label label-b">Overflow</small>
+				</div>
+			</div>
+			<!-- END: SCROLL TYPE OPTION -->
+			<!-- SCREEN OPTIONS MODEL BUTTON -->
+			<button class="btn update-screengrab-btn md-trigger" data-modal="modal-1">Change Screengrab</button>
+		</nav>
+		<!-- END: PRIMARY NAV -->
+		<!-- SECONDARY NAV -->
+		<nav class="secondary-nav">
+			<div class="menu__option-right">
+				<p class="option-label">Background Color</p>
+				<div class="color-option__wrap">
+					<label class="color-label" for="page-background-color">Page</label>
+					<input class="color-input" type="text" id="page-background-color" placeholder="Enter HEX value">
+				</div>
+				<div class="color-option__wrap">
+					<label class="color-label" for="device-background-color">Device</label>
+					<input class="color-input" type="text" id="device-background-color" placeholder="Enter HEX value">
+				</div>
+			</div>
+			<div class="menu__option-pull-left">
+				<div class="selected-device__details">
+					<!-- Device detials inputed here -->
+				</div>
+			</div>
+		</nav>
+		<!-- END: SECONDARY NAV -->
+	</header>
+	<!-- END: MAIN HEADER -->
+	<!-- UPDATE SCREENGRAB MODEL -->
+	<div class="md-modal md-effect-1" id="modal-1">
+	    <div class="md-content">
+				<div class="md-closeWrapper"> <i class="md-close ss-delete"></i></div>
+	      	<div id="modal-1-target">
+	         	<h3>Change Screengrab</h3>
+						<div class="file-submission">
+							<div class="external-file__wrap">
+								<h4>Load from URL</h4>
+								<input type="text" id="external-file__input" placeholder="Enter Website URL">
+							</div>
+							<div class="local-file__wrap">
+								<h4>Load from Computer</h4>
+								<label class="file" for="local-file__input">
+									<input type="file" id="local-file__input" value="">
+									<span class="file-custom"></span>
+								</label>
+							</div>
+							<div class="button__wrap">
+								<button class="btn view-screengrab">Save</button>
+							</div>
+						</div>
+	        </div>
+				</div>
+	    </div>
+	</div>
+	<div class="md-overlay"></div>
+	<!-- END: UPDATE SCREENGRAB MODEL -->
+	<!-- DEVICE SECTION -->
+	<section class="device__wrap">
+		<!-- BROWSER WINDOW -->
+		<div class="single-device__wrap">
+			<section id="browser" class="device">
+				<div class="wrap">
+					<div class='browser-window'>
+			  	  <div class='top-bar'>
+			  	    <div class='circles'>
+			  	       <div class="circle circle-red"></div>
+			  	       <div class="circle circle-yellow"></div>
+			  	       <div class="circle circle-green"></div>
+			  	    </div>
+			  	  </div>
+			  	  <div class='screen scroll'>
+			  	  	<img class="screenshot" src="img/01-Home@2x.png" />
+			  	  </div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<!-- END: BROWSER WINDOW -->
+		<!-- MACBOOK PRO -->
+		<div class="single-device__wrap">
+			<section id="macbook" class="black device">
+				<div class="wrap">
+					<div class="marvel-device macbook">
+						<div class="top-bar"></div>
+						<div class="camera"></div>
+						<div class="screen scroll">
+			        <img class="screenshot" src="img/01-Home@2x.png"> 
+			      </div>
+						<div class="bottom-bar"></div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<!-- END: MACKBOOK PRO -->
+		<!-- IPAD -->
+		<div class="single-device__wrap">
+			<section id="ipad" class="silver device">
+				<div class="wrap">
+					<div class="marvel-device ipad silver">
+						<div class="camera"></div>
+						<div class="screen scroll">
+							<img class="screenshot" src="img/01-Home@2x.png">
+						</div>
+						<div class="home"></div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<!-- END: IPAD -->
+		<!-- IPHONE 6 -->
+		<div class="single-device__wrap">
+			<section id="iphone6" class="silver device">
+				<div class="wrap">
+					<div class="marvel-device iphone6">
+						<div class="sleep"></div>
+						<div class="volume"></div>
+						<div class="camera"></div>
+						<div class="sensor"></div>
+						<div class="speaker"></div>
+						<div class="screen scroll">
+							<img class="screenshot" src="img/01-Home@2x.png">
+						</div>
+						<div class="home"></div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<!-- END: IPHONE 6 -->
+		<!-- SAMSUNG GALAXY 5 -->
+		<div class="single-device__wrap">
+			<section id="s5" class="device">
+				<div class="wrap">
+					<div class="marvel-device s5">
+						<div class="top-bar"></div>
+						<div class="sleep"></div>
+						<div class="camera"></div>
+						<div class="sensor"></div>
+						<div class="speaker"></div>
+						<div class="screen scroll">
+							<img class="screenshot" src="img/01-Home@2x.png">
+						</div>
+						<div class="home"></div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<!-- END: SAMSUNG GALAXY 5 -->
+		<button class="btn grab-code-btn md-trigger" data-modal="modal-2">Grab Code</button>
+	</section>
+	<!-- END: DEVICE SECTION -->
+	<!-- CODE GRAB MODEL -->
+	<div class="md-modal md-effect-1" id="modal-2">
+	    <div class="md-content">
+				<div class="md-closeWrapper"> <i class="md-close ss-delete"></i></div>
+	      	<div id="modal-2-target">
+	         	<pre>
+	         		<code class="language-html" id="current-device-code">
+	         			
+	         		</code>
+	         	</pre>
+	        </div>
+				</div>
+	    </div>
+	</div>
+	<div class="md-overlay"></div>
+	<!-- END: CODE GRAB MODEL -->
+</body>
+<script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/vendor/spectrum.js"></script>
+<script type="text/javascript" src="js/vendor/ss-gizmo.js"></script>
+<script type="text/javascript" src="js/vendor/prism.js"></script>
+<script type="text/javascript" src="js/vendor/classie.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</html>

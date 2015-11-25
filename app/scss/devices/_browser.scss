@@ -1,0 +1,97 @@
+// CSS for Samsung Galaxy
+@import '../base/mixins';
+
+body {
+  text-align: center;
+}
+
+.browser-window {
+  text-align: left;
+  margin: 20px;
+  display: inline-block;
+  border-radius: 7px;
+  background-color: #fff;
+  border: 3px solid #bcbcbc;
+}
+
+.browser-window .top-bar {
+  height: 30px;
+  border-top: 0;
+  border-bottom: thin solid #dfdfde;
+  background: linear-gradient(#e7e7e6, #e2e2e1);
+  padding-top: 0px;
+  margin-top: -5px;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.browser-window .circle {
+  height: 8px;
+  width: 8px;
+  display: inline-block;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.browser-window .circles {
+  margin: 5px 11px;
+}
+
+.browser-window .screen {
+  margin: 0;
+  width: 100%;
+  min-height: 50%;
+  display: inline-block;
+  border-radius: 0 0 5px 5px;
+  background-color: #fafafa;
+}
+
+.browser-window .screen.scroll {
+  overflow-y: scroll;
+  height: 600px;
+}
+
+.browser-window .dev-tools {
+  width: 100%;
+  min-height: 50%;
+  margin: 0;
+  padding: 0;
+}
+
+.browser-window .dev-tools .bar {
+  margin-top: -4px;
+  border-top: thin solid #e7e7e6;
+  border-bottom: thin solid #e7e7e6;
+  color: #e7e7e6;
+}
+.browser-window .dev-tools .bar .dev-bar-content {
+  padding: 10px;
+  float: left;
+}
+.browser-window .dev-tools .bar .close {
+  float: right;
+  border-left: thin solid #e7e7e6;
+  padding: 10px;
+}
+
+.browser-window .dev-tools .content .html {
+  height: 100%;
+  width: 69%;
+  border-right: thin solid #e7e7e6;
+}
+.browser-window .dev-tools .content .css {
+  float: right;
+  height: 100%;
+  width: 30%;
+}
+
+.clear {
+  clear: both;
+}
+
+.browser-window .screen .screenshot {
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+}
