@@ -27,3 +27,6 @@ _A interactive sample tool_
 ##### Housekeeping
 - clean up unused code
 - comment out code and remove unneeded comments
+
+### Branding
+- ideate visual brand concept and implement
