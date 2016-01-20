@@ -391,38 +391,3 @@ var appUI = (function() {
     disableToggle: disableToggle
   }
 })();
-
-
-// testing 1 2 3
-var serialize = function(obj) {
-  var str = [];
-  for(var p in obj)
-    if (obj.hasOwnProperty(p)) {
-      str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-    }
-  return str.join("&");
-}
-
-function updateQueryStringParameter(uri, key, value) {
-  var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
-  var separator = uri.indexOf('?') !== -1 ? "&" : "?";
-  console.log('uri= ' + uri);
-  console.log('key= ' + key);
-  console.log('value= ' + value);
-  if (uri.match(re)) {
-    return uri.replace(re, '$1' + key + "=" + value + '$2');
-    console.log(re, '$1' + key + "=" + value + '$2');
-  }
-  else {
-    return uri + separator + key + "=" + value;
-    console.log(uri + separator + key + "=" + value);
-  }
-}
-
-
-//console.log(serialize(appState.currentModel));
-
-
-$(window).load(function() {
-  initApp.getUrlVars();
-});
