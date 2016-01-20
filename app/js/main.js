@@ -185,9 +185,16 @@ var appState = (function() {
     }
   }
 
+  function jsonToURI(json){ return encodeURIComponent(JSON.stringify(json)).replace(/%5B/g, '[').replace(/%5D/g, ']'); }
+  function uriToJSON(urijson){ return JSON.parse(decodeURIComponent(urijson)); }
+
   function set(paramater, value) {
     model[paramater] = value;
+    urlString = jsonToURI(model);
     console.log(model);
+    console.log(urlString);
+    console.log(uriToJSON(urlString));
+
     // eg - parameter is scrollType
     // eg - value is landscape
     // Updates AppView based on naming functions after their respective paramater name
