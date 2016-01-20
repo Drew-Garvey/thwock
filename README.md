@@ -5,7 +5,7 @@ _A interactive sample tool_
 
 ### Design
 - Homepage / landing page
-- Redesign toolbar / modal window
+- Redesign toolbar / screen modal window
 
 ### Development
 
@@ -24,3 +24,6 @@ _A interactive sample tool_
 ##### Event handlers
 - re-evaluate event handlers to see what can get moved into set functions
 
+##### Housekeeping
+- clean up unused code
+- comment out code and remove unneeded comments
