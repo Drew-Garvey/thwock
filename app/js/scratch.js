@@ -123,3 +123,41 @@ function updateQueryStringParameter(uri, key, value) {
 $(window).load(function() {
   initApp.getUrlVars();
 });
+
+/* =========================================
+ *
+ * Initialize App
+ * ——————  
+ *
+ *==========================================*/
+
+var initApp = (function() {
+  // Gets Variables from url and pushes them to the appState object
+  function getUrlVars() {
+    var urlVars = {}, hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    // Loop through all Variables and push each paramater + value
+    for (var i = 0; i < hashes.length; i++) {
+      hash = hashes[i].split('=');
+      //urlvars.push(hash[0]);
+      urlVars[hash[0]] = hash[1];
+      paramater = appState.get(hash[0]);
+      // Check to see if paramater exsist in appState object before pushing to it
+      if (paramater) {
+        appState.set(hash[0], hash[1]);
+      }
+    }
+  }
+  
+  return {
+    getUrlVars: getUrlVars
+  }
+})();
+
+function urlVars() {
+      // foreach
+        if(get(paramater)) {
+            // updateURL
+            // push to history
+        }
+    }

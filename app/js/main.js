@@ -9,21 +9,12 @@ var grabDevices = $.getJSON('../devices.json');
 // device data successfully loaded
 grabDevices.done(function(data) {
   devices = data.devices;
-  //console.log(appState.current);
-  //default_device = appState.device;
-  //initApp();
-  //  Init does:
-       // getURLvars
-        // updateApp();  
-
-  // defaults = parseURL
-  //initApp(defaults);
 });
-
- // there was a problem with async device call
+// there was a problem with async device call
 grabDevices.fail(function() {
   console.log('no device data found');
 });
+
 /* =========================================
 *
 * Event Handlers
@@ -45,7 +36,7 @@ grabDevices.fail(function() {
 $('#device-selector').change(function() {
     newDevice = this.value;
     //updateAppView.device(newDevice);
-    appState.set('device',newDevice);
+    appState.set('device', newDevice);
     // Determine if 
     if (devices[newDevice]['has-landscape'] === false) {
       var orientationToggle = $('#device-orientation');
@@ -75,7 +66,6 @@ $('#scroll-option').change(function() {
   }
   appState.set('scrollType', newScrollType);
 });
-
 // 4) Change Screen View with External URL
 $('#external-file__input').keyup(function(ev) {
   newURL = this.value;
@@ -98,45 +88,16 @@ $('#local-file__input').keyup(function(ev) {
     appUI.enableToggle(scrollToggle);
   }
 });
-
 // 5) Change Device Display Color
-$('#device-background-color').change();
+$('#device-background-color').change(function() {
+  newColor = this.value;
+  appState.set('deviceColor', newColor);
+});
 // 6) Page Background Color
 $('#page-background-color').change(function() {
   newColor = this.value;
   appState.set('bgColor', newColor);
 });
-
-
-/* =========================================
- *
- * Initialize App
- * ——————  
- *
- *==========================================*/
-
-var initApp = (function() {
-  // Gets Variables from url and pushes them to the appState object
-  function getUrlVars() {
-    var urlVars = {}, hash;
-    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-    // Loop through all Variables and push each paramater + value
-    for (var i = 0; i < hashes.length; i++) {
-      hash = hashes[i].split('=');
-      //urlvars.push(hash[0]);
-      urlVars[hash[0]] = hash[1];
-      paramater = appState.get(hash[0]);
-      // Check to see if paramater exsist in appState object before pushing to it
-      if (paramater) {
-        appState.set(hash[0], hash[1]);
-      }
-    }
-  }
-  
-  return {
-    getUrlVars: getUrlVars
-  }
-})();
 
 /* =========================================
  *
@@ -146,34 +107,75 @@ var initApp = (function() {
  *==========================================*/
 
 var appState = (function() {
+
   // Default model values
   var model = {
-    device: "browser",
-    deviceColor: null,
-    orientation: null,
+    device: "iPhone",
+    deviceColor: "#fff",
+    orientation: "portait",
     scrollType: "scroll",
     screenshotWidth: null,
-    isIframe: null,
+    isIframe: true,
     bgColor: "#fff",
-    screenLocation: null
+    screenLocation: "http://globaldocs.us"
   }
 
-  function init() {
-    for (var key in model) {
-      //console.log(model[key]);
+
+  function initApp() {
+    //currentModelbyURL
+    //if thats not valid, than model stays the same (aka default)
+    // otherwise, set the model to parsed state
+    // init app with sets
+    if (currentModelbyURL() !== false) {
+      console.log("Im not a default version of app!");
+      //updateURL(model);
+      model = currentModelbyURL();
+    } 
+
+    console.log(model);
+    // initialize app view by kicking off each paramater
+   // console.log('initializing with: ');
+    for (var paramater in model) {
+      //console.log(paramater);
+        if (model.hasOwnProperty(paramater)) {
+          //console.log('paramter: ' + paramater);
+          //console.log('value: ' + model[paramater]);
+          set(paramater, model[paramater]);
+          //console.log(paramater + ' , ' + model[paramater]);
+        }
+      }
+    //console.log(currentModel);
+
+  }
+
+   // Decode json to URL string
+  function jsonToURI(json) { 
+    return encodeURIComponent(JSON.stringify(json)).replace(/%5B/g, '[').replace(/%5D/g, ']'); 
+  }
+
+  // Encode URL string to json object
+  function uriToJSON(urijson) { 
+    return JSON.parse(decodeURIComponent(urijson)); 
+  }
+  
+  // Defualt urlString
+  urlString = jsonToURI(model);
+  //console.log(urlString);
+
+  function currentModelbyURL() {
+    url = window.location.hash;
+    queryParam = url.substr(2);
+    //console.log('current url model = '+ queryParam);
+    if (queryParam !== "") {
+      return uriToJSON(queryParam);
+    } else {
+      return false;
     }
-    // decode hash
-    // set defaults (state change with the parameters from has)
-    
-    // set:
-    // updateAppView.device()
-    // updateAppView.orientation();
-    // updateAppView.settings();
-    //
   }
 
-  function decode() {
-    
+  function updateURL(obj) {
+    stringifiedObj = jsonToURI(obj);
+    window.location.hash = '#!' + stringifiedObj;
   }
 
   // Checks if app state paramater exist and pushes if yes
@@ -185,16 +187,11 @@ var appState = (function() {
     }
   }
 
-  function jsonToURI(json){ return encodeURIComponent(JSON.stringify(json)).replace(/%5B/g, '[').replace(/%5D/g, ']'); }
-  function uriToJSON(urijson){ return JSON.parse(decodeURIComponent(urijson)); }
-
+  // Functions sets new appState
   function set(paramater, value) {
-    model[paramater] = value;
-    urlString = jsonToURI(model);
-    console.log(model);
-    console.log(urlString);
-    console.log(uriToJSON(urlString));
-
+    //console.log('paramter: ' + paramater);
+    //console.log('value: ' + value);
+    model[paramater] = value; 
     // eg - parameter is scrollType
     // eg - value is landscape
     // Updates AppView based on naming functions after their respective paramater name
@@ -202,24 +199,37 @@ var appState = (function() {
     if (updateParamater) {
       updateParamater(value); // updateView
                               // updateObject
-      url = window.location.href;
-      updateQueryStringParameter(url, paramater, value);                      // updateURL (+push to history) 
+
+      //updateQueryStringParameter(urlString, paramater, value); // updateURL (+push to history) 
     }
-    // [device:'ipad'],[orientation:'landscape'], 
-    function urlVars() {
-      // foreach
-        if(get(paramater)) {
-            // updateURL
-            // push to history
-        }
+  }
+
+  // if the parameter/value pair passed to this function has a value different than the current model,
+  // than update the URL. 
+  function updateModel(paramater,value) {
+    currentModel = model;
+
+    if(value === currentModel[paramater]) {
+      console.log(paramater + " value is same as current value");
+    } else {
+      console.log(paramater + " value is differnt as current value");
+      currentModel[paramater] = value;
     }
+      
+      //model = currentModelbyURL();
+      //model[paramater] = value;
+      //updateURL(model);
+   
   }
   // Return methods so they can be used
   return {
     currentModel: model,
-    init: init,
+    currentModelbyURL: currentModelbyURL,
     get: get,
-    set: set
+    set: set,
+    updateURL: updateURL,
+    updateModel: updateModel,
+    init: initApp
   }
 })();
 
@@ -232,13 +242,14 @@ var appState = (function() {
  *
  *==========================================*/
 var updateAppView = (function() {
-  
   // Sets the active device in the UI
   function device(device) {
+    appState.updateModel('device', device);
     //console.log(device);
     var deviceDetails = $('.selected-device__details');
     $('.device__wrap').find('.current--device').removeClass('current--device');
     // Find device info from selcted device
+    /*
     for (var this_device in devices) {
       if(this_device === device) {
         new_device = devices[device];
@@ -248,39 +259,43 @@ var updateAppView = (function() {
         //return new_device;
       }
     }
-  }
-  
-  // Sets the device color in the UI
-  function deviceColor(value) {
-    console.log(value);
+    */
   }
 
+  // Sets the device color in the UI
+  function deviceColor(color) {
+    appState.updateModel('deviceColor', color);
+    //console.log(value);
+  }
   // Sets the active device orientation in the UI
   function orientation(currentOrientation) {
+    appState.updateModel('orientation', currentOrientation);
+
     if (currentOrientation === 'landscape') {
       $('.marvel-device').addClass('landscape');
     } else {
       $('.marvel-device').removeClass('landscape');
     }
   }
-
   // Sets the scroll type on active device in the UI
   function scrollType(currentScrollType) {
-    console.log(currentScrollType);
+    appState.updateModel('scrollType', currentScrollType);
+    
     if (currentScrollType === 'overflow') {
       $('.screen').removeClass('scroll');
     } else {
       $('.screen').addClass('scroll');
     }
   }
-
   // Sets the page background color in the UI
   function bGColor(color) {
+    appState.updateModel('bGColor', color);
     $('body').css('background-color', color);
     console.log('new background color is ' + color);
   }
   // Sets URL for the location of the iFrame/screenshot
   function screenLocation(screenViewURL) {
+    appState.updateModel('screenLocation', screenViewURL);
     var screenContainer = $('.screen');
     var screenShot = $('.screenshot').length;
     var iframe = $('.frame').length;
@@ -391,10 +406,11 @@ var appUI = (function() {
     selector.attr('disabled', 'true');
     selector.addClass('disabled');
   }
-
   // Return methods so they can be used
   return {
     enableToggle: enableToggle,
     disableToggle: disableToggle
   }
 })();
+
+appState.init();
