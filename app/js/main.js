@@ -9,6 +9,7 @@ var grabDevices = $.getJSON('../devices.json');
 // device data successfully loaded
 grabDevices.done(function(data) {
   devices = data.devices;
+  appState.init();
 });
 // there was a problem with async device call
 grabDevices.fail(function() {
@@ -96,7 +97,7 @@ $('#device-background-color').change(function() {
 // 6) Page Background Color
 $('#page-background-color').change(function() {
   newColor = this.value;
-  appState.set('bgColor', newColor);
+  appState.set('bGColor', newColor);
 });
 
 /* =========================================
@@ -110,74 +111,58 @@ var appState = (function() {
 
   // Default model values
   var model = {
-    device: "iPhone",
+    device: "browser",
     deviceColor: "#fff",
     orientation: "portait",
     scrollType: "scroll",
-    screenshotWidth: null,
-    isIframe: true,
-    bgColor: "#fff",
-    screenLocation: "http://globaldocs.us"
+    //screenshotWidth: null,
+    isIframe: false,
+    bGColor: "#fff",
+    screenLocation: "/img/get-started.png"
   }
 
 
   function initApp() {
-    //currentModelbyURL
-    //if thats not valid, than model stays the same (aka default)
+    // currentModelbyURL
+    // if thats not valid, than model stays the same (aka default)
     // otherwise, set the model to parsed state
     // init app with sets
     if (currentModelbyURL() !== false) {
       console.log("Im not a default version of app!");
-      //updateURL(model);
+      //
       model = currentModelbyURL();
+      console.log(model);
     } 
-
-    console.log(model);
     // initialize app view by kicking off each paramater
-   // console.log('initializing with: ');
     for (var paramater in model) {
-      //console.log(paramater);
-        if (model.hasOwnProperty(paramater)) {
-          //console.log('paramter: ' + paramater);
-          //console.log('value: ' + model[paramater]);
-          set(paramater, model[paramater]);
-          //console.log(paramater + ' , ' + model[paramater]);
-        }
+      if (model.hasOwnProperty(paramater)) {
+        set(paramater, model[paramater]);
       }
-    //console.log(currentModel);
-
+    }
   }
-
-   // Decode json to URL string
+  // Decode json to URL string
   function jsonToURI(json) { 
     return encodeURIComponent(JSON.stringify(json)).replace(/%5B/g, '[').replace(/%5D/g, ']'); 
   }
-
   // Encode URL string to json object
   function uriToJSON(urijson) { 
     return JSON.parse(decodeURIComponent(urijson)); 
   }
-  
-  // Defualt urlString
-  urlString = jsonToURI(model);
-  //console.log(urlString);
-
+  // Get the current model based on the url query string
   function currentModelbyURL() {
     url = window.location.hash;
     queryParam = url.substr(2);
-    //console.log('current url model = '+ queryParam);
     if (queryParam !== "") {
       return uriToJSON(queryParam);
     } else {
       return false;
     }
   }
-
+  // Push object to url
   function updateURL(obj) {
     stringifiedObj = jsonToURI(obj);
     window.location.hash = '#!' + stringifiedObj;
   }
-
   // Checks if app state paramater exist and pushes if yes
   function get(value) {
     for (var paramater in model) {
@@ -186,40 +171,30 @@ var appState = (function() {
       }
     }
   }
-
   // Functions sets new appState
   function set(paramater, value) {
-    //console.log('paramter: ' + paramater);
-    //console.log('value: ' + value);
-    model[paramater] = value; 
+    model[paramater] = value;
+
     // eg - parameter is scrollType
     // eg - value is landscape
     // Updates AppView based on naming functions after their respective paramater name
     var updateParamater = updateAppView[paramater];
     if (updateParamater) {
-      updateParamater(value); // updateView
-                              // updateObject
-
-      //updateQueryStringParameter(urlString, paramater, value); // updateURL (+push to history) 
+      updateParamater(value);
+      //console.log(value);
     }
   }
-
   // if the parameter/value pair passed to this function has a value different than the current model,
   // than update the URL. 
   function updateModel(paramater,value) {
     currentModel = model;
-
-    if(value === currentModel[paramater]) {
-      console.log(paramater + " value is same as current value");
+    URLModel = currentModelbyURL();
+    if(model[paramater] === URLModel[paramater]) {
+      //console.log('paramater value is equal');
     } else {
-      console.log(paramater + " value is differnt as current value");
-      currentModel[paramater] = value;
+      currentModel = currentModelbyURL();
+      updateURL(model);
     }
-      
-      //model = currentModelbyURL();
-      //model[paramater] = value;
-      //updateURL(model);
-   
   }
   // Return methods so they can be used
   return {
@@ -233,8 +208,6 @@ var appState = (function() {
   }
 })();
 
-// whatchu look like baby??
-//console.log(appState.currentModel);
 /* =========================================
  *
  * Update App View
@@ -249,7 +222,6 @@ var updateAppView = (function() {
     var deviceDetails = $('.selected-device__details');
     $('.device__wrap').find('.current--device').removeClass('current--device');
     // Find device info from selcted device
-    /*
     for (var this_device in devices) {
       if(this_device === device) {
         new_device = devices[device];
@@ -259,13 +231,10 @@ var updateAppView = (function() {
         //return new_device;
       }
     }
-    */
   }
-
   // Sets the device color in the UI
   function deviceColor(color) {
     appState.updateModel('deviceColor', color);
-    //console.log(value);
   }
   // Sets the active device orientation in the UI
   function orientation(currentOrientation) {
@@ -273,34 +242,43 @@ var updateAppView = (function() {
 
     if (currentOrientation === 'landscape') {
       $('.marvel-device').addClass('landscape');
+      $('#device-orientation').prop('checked', true);
+
     } else {
       $('.marvel-device').removeClass('landscape');
+      $('#device-orientation').prop('checked', false);
     }
   }
   // Sets the scroll type on active device in the UI
   function scrollType(currentScrollType) {
     appState.updateModel('scrollType', currentScrollType);
-    
+
     if (currentScrollType === 'overflow') {
       $('.screen').removeClass('scroll');
+      $('#scroll-option').prop('checked', true);
+
     } else {
       $('.screen').addClass('scroll');
+      $('#scroll-option').prop('checked', false);
     }
   }
   // Sets the page background color in the UI
   function bGColor(color) {
     appState.updateModel('bGColor', color);
     $('body').css('background-color', color);
-    console.log('new background color is ' + color);
+  }
+  function isIframe(value) {
+    appState.updateModel('isIframe', value);
   }
   // Sets URL for the location of the iFrame/screenshot
   function screenLocation(screenViewURL) {
     appState.updateModel('screenLocation', screenViewURL);
+
     var screenContainer = $('.screen');
     var screenShot = $('.screenshot').length;
     var iframe = $('.frame').length;
     // If screen view is from an external url, display it in an iframe
-    if(appState.currentModel.isIframe === 'true') {
+    if(appState.currentModelbyURL().isIframe === "true") {
       // If a screenshot already exsist, delete it before adding iframe
       if (screenShot) {
         $('.screenshot').remove();
@@ -322,7 +300,7 @@ var updateAppView = (function() {
         $('.screenshot').attr('src', screenViewURL);
       }
     }
-    console.log(screenViewURL);
+    //console.log(screenViewURL);
   }
 
   // Return methods so they can be used
@@ -331,7 +309,8 @@ var updateAppView = (function() {
     deviceColor: deviceColor,
     orientation: orientation,
     scrollType: scrollType,
-    bgColor: bGColor,
+    bGColor: bGColor,
+    isIframe: isIframe,
     screenLocation: screenLocation
   }
 })();
@@ -380,6 +359,26 @@ var appUI = (function() {
         }
     });   
   })();
+  // Tabs
+  var accordionTabs = (function() {
+    $('.accordion-tabs-minimal').each(function(index) {
+      $(this).children('li').first().children('a').addClass('is-active').next().addClass('is-open').show();
+    });
+    $('.accordion-tabs-minimal').on('click', 'li > a.tab-link', function(event) {
+      if (!$(this).hasClass('is-active')) {
+        event.preventDefault();
+        var accordionTabs = $(this).closest('.accordion-tabs-minimal');
+        accordionTabs.find('.is-open').removeClass('is-open').hide();
+
+        $(this).next().toggleClass('is-open').toggle();
+        accordionTabs.find('.is-active').removeClass('is-active');
+        $(this).addClass('is-active');
+      } else {
+        event.preventDefault();
+      }
+    });
+  })();
+
   // Color Picker UI
   var colorPickers = (function() {
     // Page Background Picker
@@ -412,5 +411,3 @@ var appUI = (function() {
     disableToggle: disableToggle
   }
 })();
-
-appState.init();

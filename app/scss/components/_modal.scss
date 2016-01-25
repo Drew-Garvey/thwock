@@ -38,6 +38,9 @@
 .md-closeWrapper {
   text-align: right;
   font-size: 1.5rem;
+  position: absolute;
+  top: 15px;
+  right: 15px;
 }
 
 .md-close {
@@ -86,7 +89,7 @@
   transition: all 0.3s;
   background: $white;
   box-shadow: 0 1px 5px rgba(0,0,0,0.9);
-  padding: 40px;
+  //padding: 40px;
 }
 
 .md-show.md-effect-1 .md-content {
@@ -111,17 +114,18 @@
 }
 
 .file-submission .external-file__wrap {
-  float: left;
-  width: 50%;
+  //float: left;
+  width: 100%;
   padding: 3% 0 8% 0;
-  border-right: 1px solid $medium-grey;
-
+  //border-right: 1px solid $medium-grey;
+  /*
   @include media($md) {
     float: none;
     width: 100%;
     border-right: none;
     border-bottom: 1px solid $medium-grey;
   }
+  */
 }
 
 .file-submission .external-file__wrap #external-file__input {
@@ -133,8 +137,8 @@
 }
 
 .file-submission .local-file__wrap {
-  float: left;
-  width: 50%;
+  //float: left;
+  width: 100%;
   padding: 3% 0 8% 0;
 
   @include media($md) {

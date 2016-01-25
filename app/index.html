@@ -10,6 +10,7 @@
 		<nav class="global-nav">
 			<!-- DEVICE SELECTOR -->
 			<div class="menu__option">
+				<p class="option-label">Device</p>
 				<label class="select" for="device-selector">
 					<select name="device-selector" id="device-selector">
 						<option value="browser">Browser Window</option>
@@ -32,8 +33,20 @@
 				</div>
 			</div>
 			<!-- END: DEVICE ORIENTATION TOGGLE -->
-			<!-- SCROLL TYPE OPTION -->
+			<!-- COLOR OPTION -->
 			<div class="menu__option">
+				<p class="option-label">Color</p>
+				<div class="color-option__wrap">
+					<input class="color-input" type="text" id="page-background-color" placeholder="Enter HEX value">
+					<label class="color-label" for="page-background-color">Background</label>
+				</div>
+				<!-- Commenting out until support is added
+				<div class="color-option__wrap">
+					<label class="color-label" for="device-background-color">Device</label>
+					<input class="color-input" type="text" id="device-background-color" placeholder="Enter HEX value">
+				</div>
+				-->
+				<!--
 				<p class="option-label">Scroll Type</p>
 				<div class="switch scroll-toggle">
 					<small class="switch-label label-a">Scroll</small>
@@ -41,35 +54,20 @@
 	  			<label for="scroll-option"></label>
 	  			<small class="switch-label label-b">Overflow</small>
 				</div>
+				-->
 			</div>
-			<!-- END: SCROLL TYPE OPTION -->
+			<!-- END: CCOLOR OPTION -->
 			<!-- SCREEN OPTIONS MODEL BUTTON -->
-			<button class="btn update-screengrab-btn md-trigger" data-modal="modal-1">Change Screengrab</button>
+			<button class="btn update-screengrab-btn md-trigger" data-modal="modal-1">Screen</button>
 		</nav>
 		<!-- END: PRIMARY NAV -->
-		<!-- SECONDARY NAV -->
-		<nav class="secondary-nav">
-			<div class="menu__option-right">
-				<p class="option-label">Background Color</p>
-				<div class="color-option__wrap">
-					<label class="color-label" for="page-background-color">Page</label>
-					<input class="color-input" type="text" id="page-background-color" placeholder="Enter HEX value">
-				</div>
-				<div class="color-option__wrap">
-					<label class="color-label" for="device-background-color">Device</label>
-					<input class="color-input" type="text" id="device-background-color" placeholder="Enter HEX value">
-				</div>
-			</div>
-			<div class="menu__option-pull-left">
-				<div class="selected-device__details">
-					<!-- Device detials inputed here -->
-				</div>
-			</div>
-		</nav>
-		<!-- END: SECONDARY NAV -->
 	</header>
 	<!-- END: MAIN HEADER -->
 	<!-- UPDATE SCREENGRAB MODEL -->
+	<!-- ================================
+	
+	OLD MODEL
+
 	<div class="md-modal md-effect-1" id="modal-1">
 	    <div class="md-content">
 				<div class="md-closeWrapper"> <i class="md-close ss-delete"></i></div>
@@ -95,6 +93,51 @@
 				</div>
 	    </div>
 	</div>
+
+	OLD MODEL
+
+	============================================= -->
+	<div class="md-modal md-effect-1" id="modal-1">
+	    <div class="md-content">
+				<div class="md-closeWrapper"> <i class="md-close ss-delete"></i></div>
+	      	<div id="modal-1-target">
+						<ul class="accordion-tabs-minimal">
+						  <li class="tab-header-and-content">
+						    <a href="#" class="tab-link is-active">Live URL</a>
+						    <div class="tab-content">
+									<div class="file-submission">
+										<div class="external-file__wrap">
+											<h4>Load from URL</h4>
+											<input type="text" id="external-file__input" placeholder="Enter Website URL">
+										</div>
+										<div class="button__wrap">
+											<button class="btn view-screengrab">Save</button>
+										</div>
+								   </div>
+						 		</div>
+						  </li>
+						  <li class="tab-header-and-content">
+						    <a href="#" class="tab-link">Screenshot</a>
+						    <div class="tab-content">
+									<div class="file-submission">
+										<div class="local-file__wrap">
+											<h4>Load from Computer</h4>
+											<label class="file" for="local-file__input">
+												<input type="file" id="local-file__input" value="">
+												<span class="file-custom"></span>
+											</label>
+										</div>
+										<div class="button__wrap">
+											<button class="btn view-screengrab">Save</button>
+										</div>
+								   </div>
+						    </div>
+						  </li>
+						</ul>
+	        </div> <!-- End: modal-target-1 -->
+				</div>
+	    </div>
+	</div>
 	<div class="md-overlay"></div>
 	<!-- END: UPDATE SCREENGRAB MODEL -->
 	<!-- DEVICE SECTION -->
@@ -112,7 +155,7 @@
 			  	    </div>
 			  	  </div>
 			  	  <div class='screen scroll'>
-			  	  	<img class="screenshot" src="img/01-Home@2x.png" />
+			  	  	<img class="screenshot" src="img/get-started.png" />
 			  	  </div>
 					</div>
 				</div>
@@ -188,25 +231,8 @@
 			</section>
 		</div>
 		<!-- END: SAMSUNG GALAXY 5 -->
-		<button class="btn grab-code-btn md-trigger" data-modal="modal-2">Grab Code</button>
 	</section>
 	<!-- END: DEVICE SECTION -->
-	<!-- CODE GRAB MODEL -->
-	<div class="md-modal md-effect-1" id="modal-2">
-	    <div class="md-content">
-				<div class="md-closeWrapper"> <i class="md-close ss-delete"></i></div>
-	      	<div id="modal-2-target">
-	         	<pre>
-	         		<code class="language-html" id="current-device-code">
-	         			
-	         		</code>
-	         	</pre>
-	        </div>
-				</div>
-	    </div>
-	</div>
-	<div class="md-overlay"></div>
-	<!-- END: CODE GRAB MODEL -->
 </body>
 <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/vendor/spectrum.js"></script>

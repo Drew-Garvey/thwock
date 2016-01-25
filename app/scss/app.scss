@@ -87,7 +87,6 @@ section .wrap {
 
 .global-nav {
   height: 97px;
-  border-bottom: 3px solid $medium-grey;
 
   @include media($lg) {
     height: auto;
@@ -100,17 +99,19 @@ section .wrap {
 }
 
 .color-option__wrap {
-  width: 50%;
+  width: 100%;
   float: left;
+  padding-top: 6px;
 }
 
-.secondary-nav .color-input {
+.menu__option .color-input {
   font-size: 9px;
   padding: 0.1rem 0.5rem;
   display: none;
 }
 
-.secondary-nav .color-label {
+.menu__option .color-label {
+  padding-left: 5px;
   font-size: 0.5rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -118,7 +119,7 @@ section .wrap {
   color: $dark-grey;
 }
 
-.secondary-nav .color-sample {
+.menu__option .color-sample {
   display: inline-block;
   height: 22px;
   width: 22px;
@@ -198,18 +199,6 @@ section .wrap {
 .selected-device__details .selected-device__opt-width {
   color: $dark-grey;
 }
-
-//pre {
-//  white-space: pre-wrap;       /* css-3 */
-//  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-//  white-space: -pre-wrap;      /* Opera 4-6 */
-//  white-space: -o-pre-wrap;    /* Opera 7 */
-//  word-wrap: break-word;       /* Internet Explorer 5.5+ */
-//  background-color: rgb(25, 53, 73);
-//  color: white;
-//  border-radius: 6px;
-//  font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
-//}
 
 .grab-code-btn {
   position: absolute;

@@ -58,8 +58,7 @@ section .wrap {
   background-color: #fff; }
 
 .global-nav {
-  height: 97px;
-  border-bottom: 3px solid #dddddd; }
+  height: 97px; }
   @media screen and (max-width: 999px) {
     .global-nav {
       height: auto; } }
@@ -68,22 +67,24 @@ section .wrap {
   clear: both; }
 
 .color-option__wrap {
-  width: 50%;
-  float: left; }
+  width: 100%;
+  float: left;
+  padding-top: 6px; }
 
-.secondary-nav .color-input {
+.menu__option .color-input {
   font-size: 9px;
   padding: 0.1rem 0.5rem;
   display: none; }
 
-.secondary-nav .color-label {
+.menu__option .color-label {
+  padding-left: 5px;
   font-size: 0.5rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
   color: #868686; }
 
-.secondary-nav .color-sample {
+.menu__option .color-sample {
   display: inline-block;
   height: 22px;
   width: 22px;

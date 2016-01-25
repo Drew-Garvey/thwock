@@ -28,9 +28,15 @@
 }
 
 @mixin media($width) {
-    @media screen and (max-width: #{$width}){
-    	@content;
-    }
+	@media screen and (max-width: #{$width}){
+		@content;
+	}
+}
+
+@mixin media-min($width) {
+	@media screen and (min-width: #{$width}){
+    @content;
+	}
 }
 
 @mixin no-touch{
@@ -40,4 +46,12 @@
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+}
+
+@mixin clearfix {
+  &::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
 }
