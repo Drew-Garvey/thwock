@@ -20,12 +20,15 @@
   top: 50%;
   left: 50%;
   width: 65%;
+  border-radius: 6px;
+  overflow: hidden;
   //max-width: 630px;
   //min-width: 320px;
   height: auto;
   z-index: 2000;
   visibility: hidden;
   backface-visibility: hidden;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.32);
   -webkit-transform: translateX(-50%) translateY(-50%);
      -ms-transform: translateX(-50%) translateY(-50%);
          transform: translateX(-50%) translateY(-50%);
@@ -37,16 +40,16 @@
 
 .md-closeWrapper {
   text-align: right;
-  font-size: 1.5rem;
+  font-size: 16px;
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 18px;
+  right: 16px;
 }
 
 .md-close {
   @include easing;
   padding: 10px;
-  color: #bbb;
+  color: #979797;
 }
 
 .md-close:hover {
@@ -101,7 +104,7 @@
 }
 
 .file-submission {
-  padding: 5% 0;
+  padding: 5% 0 8% 0;
   position: relative;
 
   @include media($md) {
@@ -110,7 +113,14 @@
 }
 
 .file-submission h4 {
+  font-size: 12px;
   margin-top: 0;
+  padding-bottom: 5%;
+}
+
+.file-submission input[type="text"] {
+  border: 3px solid #F5F5F5;
+  background-color: #F5F5F5;
 }
 
 .file-submission .external-file__wrap {
@@ -129,8 +139,8 @@
 }
 
 .file-submission .external-file__wrap #external-file__input {
-  width: 75%;
-
+  width: 60%;
+  font-weight: 700;
   @include media($md) {
     width: 100%;
   }
@@ -150,7 +160,7 @@
 
 .file-submission .button__wrap {
   width: 100%;
-  padding-top: 3rem;
+  padding-top: 1rem;
   clear: both;
 }
 
@@ -167,8 +177,101 @@
 .divider-text {
   //position: absolute;
   //top: 50%;
-  display: inline-block;  
+  display: inline-block; 
  //-webkit-transform: translateY(-50%);
  //-ms-transform: translateY(-50%);
  //transform: translateY(-50%);
+}
+
+.file-submission .external-file__wrap #share-URL {
+  width: 60%;
+  font-weight: 700;
+  @include media($md) {
+    width: 100%;
+  }
+}
+// Screenshot Steps
+
+.text-content__wrap {
+  padding: 5% 0 3% 0;
+  position: relative;
+
+  @include media($md) {
+    padding: 0;
+  }
+}
+
+.text-content__wrap h4 {
+  font-size: 12px;
+  margin-top: 0;
+  padding-bottom: 5%;
+}
+
+.screenshot-steps__wrap {
+  width: 100%;
+  padding: 3% 0 0 0;
+}
+
+.screenshot-steps {
+  padding: 0 10%;
+}
+
+.screenshot-steps .step__row {
+  width: 100%;
+  margin-bottom: 3.14rem;
+  @include clearfix;
+}
+
+.screenshot-steps .step__row .step__headline {
+  float: left;
+  width: 20%;
+  padding-right: 3.14rem;
+  text-align: right;
+  @include media($md) {
+    float: none;
+    width: 100%;
+    padding-right: 0;
+    padding-bottom: 1.57rem;
+    text-align: center;
+  }
+}
+
+.screenshot-steps .step__row .step__headline h5 {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.screenshot-steps .step__row .step__instructions {
+  float: left;
+  width: 80%;
+  text-align: left;
+  @include media($md) {
+    float: none;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.screenshot-steps .step__row .step__instructions p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  color: #373737;
+}
+
+.screenshot-steps .step__row .step__instructions a {
+  color: #373737;
+  font-weight: 700;
+  border-bottom: 1px solid #BFBEBF;
+  text-decoration: none;
+  -webkit-transition: all 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  -moz-transition: all 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  -o-transition: all 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  transition: all 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+
+  &:hover {
+    color: #808080;
+    border-bottom: 1px solid #fff;
+  }
 }

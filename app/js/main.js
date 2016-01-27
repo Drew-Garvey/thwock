@@ -77,6 +77,13 @@ $('#external-file__input').keyup(function(ev) {
     var scrollToggle = $('#scroll-option');
     appUI.disableToggle(scrollToggle);
   }
+  $('.external-url-sub').click(function() {
+    console.log('url clicked');
+    appState.set('isIframe', 'true');
+    appState.set('screenLocation', newURL);
+    var scrollToggle = $('#scroll-option');
+    appUI.disableToggle(scrollToggle);
+  });
 });
 // 4) Change Screen View with uploaded screenshot
 $('#local-file__input').keyup(function(ev) {
@@ -88,6 +95,13 @@ $('#local-file__input').keyup(function(ev) {
     var scrollToggle = $('#scroll-option');
     appUI.enableToggle(scrollToggle);
   }
+  $('.local-file-sub').click(function() {
+    console.log('click ScreenShot Pressed');
+    appState.set('isIframe', 'false');
+    appState.set('screenLocation', newScreenShot);
+    var scrollToggle = $('#scroll-option');
+    appUI.enableToggle(scrollToggle);
+  });
 });
 // 5) Change Device Display Color
 $('#device-background-color').change(function() {
@@ -111,7 +125,7 @@ var appState = (function() {
 
   // Default model values
   var model = {
-    device: "browser",
+    device: "macbook",
     deviceColor: "#fff",
     orientation: "portait",
     scrollType: "scroll",
@@ -194,6 +208,8 @@ var appState = (function() {
     } else {
       currentModel = currentModelbyURL();
       updateURL(model);
+      // Update URL Share when screen view URL is changed
+      document.getElementById("share-URL").value = window.location;
     }
   }
   // Return methods so they can be used
@@ -275,7 +291,7 @@ var updateAppView = (function() {
     appState.updateModel('screenLocation', screenViewURL);
 
     var screenContainer = $('.screen');
-    var screenShot = $('.screenshot').length;
+    var screenShot = $('.screenshot').length; 
     var iframe = $('.frame').length;
     // If screen view is from an external url, display it in an iframe
     if(appState.currentModelbyURL().isIframe === "true") {
@@ -345,10 +361,12 @@ var appUI = (function() {
         close.addEventListener( 'click', function( ev ) {
           ev.stopPropagation();
           removeModalHandler();
+          appUI.copyBtnRestore();
         });
         $(document).keyup(function(ev) {
           if (ev.which === 27 || ev.which === 13) {
             removeModalHandler();
+            appUI.copyBtnRestore();
           }
         });
         if (view) {
@@ -356,8 +374,8 @@ var appUI = (function() {
             ev.stopPropagation();
             removeModalHandler();
           });
-        }
-    });   
+        } 
+    });
   })();
   // Tabs
   var accordionTabs = (function() {
@@ -378,7 +396,6 @@ var appUI = (function() {
       }
     });
   })();
-
   // Color Picker UI
   var colorPickers = (function() {
     // Page Background Picker
@@ -405,8 +422,53 @@ var appUI = (function() {
     selector.attr('disabled', 'true');
     selector.addClass('disabled');
   }
+  // Change copy button to show success
+  function copyBtnSuccess() {
+    var copyBtn = $('.copy-url');
+    var msg = 'Copied!';
+    copyBtn.html(msg);
+    copyBtn.addClass('copy-success');
+    if (copyBtn.hasClass('copy-error')) {
+      copyBtn.removeClass('copy-error');
+    }
+  }
+  // Chnage copy button to show error
+  function copyBtnError() {
+    var copyBtn = $('.copy-url');
+    var msg = 'Copy Failed';
+    copyBtn.html(msg);
+    copyBtn.addClass('copy-error');
+    if (copyBtn.hasClass('copy-success')) {
+      copyBtn.removeClass('copy-success');
+    }
+  }
+  // Restore copy button to original state
+  function copyBtnRestore() {
+    var copyBtn = $('.copy-url');
+    var restoredMsg = 'Copy to Clipboard';
+    if (copyBtn.hasClass('copy-success')) {
+      copyBtn.removeClass('copy-success');
+      copyBtn.html(restoredMsg);
+    } else if (copyBtn.hasClass('copy-error')) {
+      copyBtn.removeClass('copy-error');
+      copyBtn.html(restoredMsg);
+    }
+  }
+  // Clipboard
+  var clipboard = (function() {
+    var copyURL = new Clipboard('.copy-url');
+    copyURL.on('success', function(e) {
+      console.info('Text:', e.text);
+      copyBtnSuccess();
+    });
+    copyURL.on('error', function(e) {
+      console.error('Action:', e.action);
+      copyBtnError();
+    });
+  })();
   // Return methods so they can be used
   return {
+    copyBtnRestore: copyBtnRestore,
     enableToggle: enableToggle,
     disableToggle: disableToggle
   }

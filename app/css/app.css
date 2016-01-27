@@ -4,6 +4,22 @@ html {
 *, *:before, *:after {
   box-sizing: inherit; }
 
+::-webkit-input-placeholder {
+  color: #a9a9a9;
+  font-weight: 400; }
+
+::-moz-placeholder {
+  color: #a9a9a9;
+  font-weight: 400; }
+
+:-ms-input-placeholder {
+  color: #a9a9a9;
+  font-weight: 400; }
+
+::placeholder {
+  color: #a9a9a9;
+  font-weight: 400; }
+
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -106,13 +122,30 @@ section .wrap {
       border-right: none;
       border-bottom: 3px solid #dddddd; } }
 
+.menu__option.device__option {
+  padding-left: 2%;
+  padding-right: 2%; }
+
 .option-label {
   margin-bottom: 1rem;
   font-size: 12px;
   font-weight: 700; }
 
 .update-screengrab-btn {
-  margin: 1.5rem 0; }
+  margin: 1.2rem 0.5rem; }
+
+.btn .btn-label {
+  font-size: 0.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1; }
+
+.btn .btn-icon {
+  font-size: 1.13rem;
+  line-height: 1;
+  margin-bottom: 3px;
+  display: inline-block; }
 
 .active {
   color: #62C612; }

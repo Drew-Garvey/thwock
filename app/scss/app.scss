@@ -8,6 +8,11 @@ html {
   box-sizing: inherit;
 }
 
+::placeholder {
+  color: #a9a9a9;
+  font-weight: 400;
+}
+
 
 body{
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -144,6 +149,11 @@ section .wrap {
   }
 }
 
+.menu__option.device__option {
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
 .option-label {
   margin-bottom: 1rem;
   font-size: 12px;
@@ -151,7 +161,22 @@ section .wrap {
 }
 
 .update-screengrab-btn {
-  margin: 1.5rem 0;
+  margin: 1.2rem 0.5rem;
+}
+
+.btn .btn-label {
+  font-size: 0.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.btn .btn-icon {
+  font-size: 1.13rem;
+  line-height: 1;
+  margin-bottom: 3px;
+  display: inline-block;
 }
 
 .active {

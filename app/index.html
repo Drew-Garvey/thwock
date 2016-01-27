@@ -9,15 +9,15 @@
 		<!-- PRIMARY NAV -->
 		<nav class="global-nav">
 			<!-- DEVICE SELECTOR -->
-			<div class="menu__option">
+			<div class="menu__option device__option">
 				<p class="option-label">Device</p>
 				<label class="select" for="device-selector">
 					<select name="device-selector" id="device-selector">
-						<option value="browser">Browser Window</option>
-						<option value="macbook">Macbook Pro</option>
-						<option value="iPad">iPad</option>
-						<option value="iPhone">iPhone 6</option>
-						<option value="samsung-galaxy">Samsung Galaxy 5</option>
+						<option value="macbook">Macbook Pro (1280 x 800)</option>
+						<option value="browser">Browser (1400 x 935)</option>
+						<option value="iPad">iPad (1024 x 768)</option>
+						<option value="iPhone">iPhone 6 (667 x 375)</option>
+						<option value="samsung-galaxy">Samsung Galaxy 5 (568 x 320)</option>
 					</select>
 				</label>
 			</div>
@@ -58,86 +58,128 @@
 			</div>
 			<!-- END: CCOLOR OPTION -->
 			<!-- SCREEN OPTIONS MODEL BUTTON -->
-			<button class="btn update-screengrab-btn md-trigger" data-modal="modal-1">Screen</button>
+			<button class="btn update-screengrab-btn md-trigger" data-modal="modal-1">
+				<i class="btn-icon ss-picture"></i>
+				<p class="btn-label">Screen</p>
+			</button>
+			<button class="btn update-screengrab-btn md-trigger" data-modal="modal-2">
+				<i class="btn-icon ss-logout"></i>
+				<p class="btn-label">Share</p>
+			</button>
 		</nav>
 		<!-- END: PRIMARY NAV -->
 	</header>
 	<!-- END: MAIN HEADER -->
 	<!-- UPDATE SCREENGRAB MODEL -->
-	<!-- ================================
-	
-	OLD MODEL
-
 	<div class="md-modal md-effect-1" id="modal-1">
-	    <div class="md-content">
-				<div class="md-closeWrapper"> <i class="md-close ss-delete"></i></div>
-	      	<div id="modal-1-target">
-	         	<h3>Change Screengrab</h3>
-						<div class="file-submission">
-							<div class="external-file__wrap">
-								<h4>Load from URL</h4>
-								<input type="text" id="external-file__input" placeholder="Enter Website URL">
-							</div>
-							<div class="local-file__wrap">
-								<h4>Load from Computer</h4>
-								<label class="file" for="local-file__input">
-									<input type="file" id="local-file__input" value="">
-									<span class="file-custom"></span>
-								</label>
-							</div>
-							<div class="button__wrap">
-								<button class="btn view-screengrab">Save</button>
-							</div>
-						</div>
-	        </div>
-				</div>
-	    </div>
-	</div>
-
-	OLD MODEL
-
-	============================================= -->
-	<div class="md-modal md-effect-1" id="modal-1">
-	    <div class="md-content">
-				<div class="md-closeWrapper"> <i class="md-close ss-delete"></i></div>
-	      	<div id="modal-1-target">
-						<ul class="accordion-tabs-minimal">
-						  <li class="tab-header-and-content">
-						    <a href="#" class="tab-link is-active">Live URL</a>
-						    <div class="tab-content">
-									<div class="file-submission">
-										<div class="external-file__wrap">
-											<h4>Load from URL</h4>
-											<input type="text" id="external-file__input" placeholder="Enter Website URL">
+    <div class="md-content">
+			<div class="md-closeWrapper"> <i class="md-close ss-delete"></i></div>
+    	<div id="modal-1-target">
+				<ul class="accordion-tabs-minimal">
+				  <li class="tab-header-and-content">
+				    <a href="#" class="tab-link is-active">Live URL</a>
+				    <div class="tab-content">
+							<div class="file-submission">
+								<div class="external-file__wrap">
+									<h4>Enter URL</h4>
+									<input type="text" id="external-file__input" placeholder="Enter Website URL">
+								</div>
+								<div class="button__wrap">
+									<button class="btn view-screengrab external-url-sub">Save Settings</button>
+								</div>
+						   </div>
+				 		</div>
+				  </li>
+				  <li class="tab-header-and-content">
+				    <a href="#" class="tab-link">Screenshot</a>
+				    <div class="tab-content">
+							<div class="file-submission">
+								<div class="local-file__wrap">
+									<h4>Load from Computer</h4>
+									<label class="file" for="local-file__input">
+										<input type="file" id="local-file__input" value="">
+										<span class="file-custom"></span>
+									</label>
+								</div>
+								<div class="button__wrap">
+									<button class="btn view-screengrab local-file-sub">Save Settings</button>
+								</div>
+						   </div>
+				    </div>
+				  </li>
+				</ul>
+      </div> <!-- End: modal-target-1 -->
+		</div>
+  </div>
+	<!-- SHARE MODEL -->
+  <div class="md-modal md-effect-1" id="modal-2">
+    <div class="md-content">
+			<div class="md-closeWrapper"> <i class="md-close ss-delete"></i></div>
+    	<div id="modal-2-target">
+				<ul class="accordion-tabs-minimal">
+				  <li class="tab-header-and-content">
+				    <a href="#" class="tab-link is-active">Share URL</a>
+				    <div class="tab-content">
+							<div class="file-submission">
+								<div class="external-file__wrap">
+									<h4>Share URL</h4>
+									<input type="text" id="share-URL" name="share-URL" value="" placeholder="Enter Website URL">
+								</div>
+								<div class="button__wrap">
+									<button class="btn copy-url" data-clipboard-target="#share-URL">Copy to Clipboard</button>
+								</div>
+						   </div>
+				 		</div>
+				  </li>
+				  <li class="tab-header-and-content">
+				    <a href="#" class="tab-link">Export Screenshot</a>
+				    <div class="tab-content">
+							<div class="text-content__wrap">
+								<div class="screenshot-steps__wrap">
+									<h4>To Export a Screenshot</h4>
+									<div class="screenshot-steps">
+										<div class="step__row">
+											<div class="step__headline">
+												<h5>Step 1</h5>
+											</div>
+											<div class="step__instructions">
+												<p>Change the background color to a color that contrast strongly with the screen view. Think bright greens or blues.</p>
+											</div>
 										</div>
-										<div class="button__wrap">
-											<button class="btn view-screengrab">Save</button>
+										<div class="step__row">
+											<div class="step__headline">
+												<h5>Step 2</h5>
+											</div>
+											<div class="step__instructions">
+												<p>Grab a screenshot(command + shift + 4) of your selected device.</p>
+											</div>
 										</div>
-								   </div>
-						 		</div>
-						  </li>
-						  <li class="tab-header-and-content">
-						    <a href="#" class="tab-link">Screenshot</a>
-						    <div class="tab-content">
-									<div class="file-submission">
-										<div class="local-file__wrap">
-											<h4>Load from Computer</h4>
-											<label class="file" for="local-file__input">
-												<input type="file" id="local-file__input" value="">
-												<span class="file-custom"></span>
-											</label>
+										<div class="step__row">
+											<div class="step__headline">
+												<h5>Step 3</h5>
+											</div>
+											<div class="step__instructions">
+												<p>Open the screenshot in your photo editor such as Photoshop or Keynote to remove the colored background you set in step 1. In Photoshop you can remove the background using the <a href="http://www.jgreenwalt.com/archives/removing-a-background-with-quick-selection-and-refine-edge-in-photoshop" target="_blank">quick selection tool</a>. If you’re using Keynote you can achieve this using the <a href="http://isupport.com.au/osx-mac-tutorials/remove-backgrounds-easily-with-a-hidden-gem-inside-keynote/" target="_blank">alpha tool</a>.</p>
+											</div>
 										</div>
-										<div class="button__wrap">
-											<button class="btn view-screengrab">Save</button>
+										<div class="step__row">
+											<div class="step__headline">
+												<h5>Step 4</h5>
+											</div>
+											<div class="step__instructions">
+												<p>Export and enjoy!</p>
+											</div>
 										</div>
-								   </div>
-						    </div>
-						  </li>
-						</ul>
-	        </div> <!-- End: modal-target-1 -->
-				</div>
-	    </div>
-	</div>
+									</div>
+								</div>
+						   </div>
+				    </div>
+				  </li>
+				</ul>
+      </div> <!-- End: modal-target-2 -->
+		</div>
+  </div>
+  <!-- END: SHARE MODEL -->
 	<div class="md-overlay"></div>
 	<!-- END: UPDATE SCREENGRAB MODEL -->
 	<!-- DEVICE SECTION -->
@@ -235,9 +277,6 @@
 	<!-- END: DEVICE SECTION -->
 </body>
 <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="js/vendor/spectrum.js"></script>
-<script type="text/javascript" src="js/vendor/ss-gizmo.js"></script>
-<script type="text/javascript" src="js/vendor/prism.js"></script>
-<script type="text/javascript" src="js/vendor/classie.js"></script>
+<script type="text/javascript" src="js/vendor/vendor.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 </html>
