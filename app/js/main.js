@@ -288,13 +288,16 @@ var updateAppView = (function() {
   }
   // Sets URL for the location of the iFrame/screenshot
   function screenLocation(screenViewURL) {
-    appState.updateModel('screenLocation', screenViewURL);
-
     var screenContainer = $('.screen');
-    var screenShot = $('.screenshot').length; 
+    var screenShot = $('.screenshot').length;
     var iframe = $('.frame').length;
     // If screen view is from an external url, display it in an iframe
     if(appState.currentModelbyURL().isIframe === "true") {
+      // Check if user included http prefix, if not add it
+      if (screenViewURL.indexOf('http://') === -1 && screenViewURL.indexOf('https://') === -1) {
+        screenViewURL = 'http://' + screenViewURL;
+        console.log('new screen location is ==> ' + screenViewURL);
+      }
       // If a screenshot already exsist, delete it before adding iframe
       if (screenShot) {
         $('.screenshot').remove();
@@ -316,7 +319,8 @@ var updateAppView = (function() {
         $('.screenshot').attr('src', screenViewURL);
       }
     }
-    //console.log(screenViewURL);
+    // Update the current model
+    appState.updateModel('screenLocation', screenViewURL);
   }
 
   // Return methods so they can be used
