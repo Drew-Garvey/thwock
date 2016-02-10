@@ -86,8 +86,10 @@ $('#external-file__input').keyup(function(ev) {
   });
 });
 // 4) Change Screen View with uploaded screenshot
-$('#local-file__input').keyup(function(ev) {
-  newScreenShot = URL.createObjectURL(ev.target.files[0]);
+$('.local-file-sub').click(function() {
+  var localFileInput = document.getElementById('local-file__input');
+  newScreenShot = URL.createObjectURL(localFileInput.files[0]);
+  /*
   if (ev.keyCode === 13) {
     console.log('Enter ScreenShot Pressed');
     appState.set('isIframe', 'false');
@@ -95,13 +97,18 @@ $('#local-file__input').keyup(function(ev) {
     var scrollToggle = $('#scroll-option');
     appUI.enableToggle(scrollToggle);
   }
+  */
+
+  console.log('click Local ScreenShot Pressed');
+  appState.set('isIframe', 'false');
+  appState.set('screenLocation', newScreenShot);
+  var scrollToggle = $('#scroll-option');
+  appUI.enableToggle(scrollToggle);
+
   $('.local-file-sub').click(function() {
-    console.log('click ScreenShot Pressed');
-    appState.set('isIframe', 'false');
-    appState.set('screenLocation', newScreenShot);
-    var scrollToggle = $('#scroll-option');
-    appUI.enableToggle(scrollToggle);
+    
   });
+
 });
 // 5) Change Device Display Color
 $('#device-background-color').change(function() {
@@ -343,6 +350,7 @@ var appUI = (function() {
         var modal = document.querySelector( '#' + el.getAttribute( 'data-modal' ) ),
             close = modal.querySelector( '.md-close' ),
             view = modal.querySelector('.view-screengrab');
+            file = modal.querySelector('.local-file-sub');
         function removeModal( hasPerspective ) {
           classie.remove( modal, 'md-show' );
           if( hasPerspective ) {
@@ -378,7 +386,14 @@ var appUI = (function() {
             ev.stopPropagation();
             removeModalHandler();
           });
-        } 
+        }
+        if (file) {
+          file.addEventListener('click', function( ev ) {
+            ev.stopPropagation();
+            removeModalHandler();
+            console.log('clicked');
+          });
+        }
     });
   })();
   // Tabs
