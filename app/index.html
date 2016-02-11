@@ -38,7 +38,7 @@
 			</div>
 			<!-- END: DEVICE ORIENTATION TOGGLE -->
 			<!-- COLOR OPTION -->
-			<div class="menu__option">
+			<div class="menu__option quarter-width">
 				<p class="option-label">Color</p>
 				<div class="color-option__wrap">
 					<input class="color-input" type="text" id="page-background-color" placeholder="Enter HEX value">
@@ -60,7 +60,16 @@
 				</div>
 				-->
 			</div>
-			<!-- END: CCOLOR OPTION -->
+			<!-- END: COLOR OPTION -->
+			<!-- DEVICE SCALE -->
+			<div class="menu__option quarter-width">
+				<p class="option-label">Device Scale</p>
+				<div class="device-scale">
+	  			<input type="number" id="device-scale" name="device-scale" value="" placeholder="1.0" step="any" min="0" max="1">
+	  			<label for="device-orientation"></label>
+				</div>
+			</div>
+			<!-- END: DEVICE SCALE -->
 			<!-- SCREEN OPTIONS MODEL BUTTON -->
 			<button class="btn update-screengrab-btn md-trigger" data-modal="modal-1">
 				<i class="btn-icon ss-picture"></i>
@@ -118,7 +127,7 @@
 	<!-- SHARE MODEL -->
   <div class="md-modal md-effect-1" id="modal-2">
     <div class="md-content">
-			<div class="md-closeWrapper"> <i class="md-close ss-delete"></i></div>
+			<div class="md-closeWrapper"><i class="md-close ss-delete"></i></div>
     	<div id="modal-2-target">
 				<ul class="accordion-tabs-minimal">
 				  <li class="tab-header-and-content">
@@ -192,7 +201,7 @@
 		<div class="single-device__wrap">
 			<section id="browser" class="device">
 				<div class="wrap">
-					<div class='browser-window'>
+					<div class='browser-window device-scaleable'>
 			  	  <div class='top-bar'>
 			  	    <div class='circles'>
 			  	       <div class="circle circle-red"></div>
@@ -212,7 +221,7 @@
 		<div class="single-device__wrap">
 			<section id="macbook" class="black device">
 				<div class="wrap">
-					<div class="marvel-device macbook">
+					<div class="marvel-device macbook device-scaleable">
 						<div class="top-bar"></div>
 						<div class="camera"></div>
 						<div class="screen scroll">
@@ -228,7 +237,7 @@
 		<div class="single-device__wrap">
 			<section id="ipad" class="silver device">
 				<div class="wrap">
-					<div class="marvel-device ipad silver">
+					<div class="marvel-device ipad silver device-scaleable">
 						<div class="camera"></div>
 						<div class="screen scroll">
 							<img class="screenshot" src="img/01-Home@2x.png">
@@ -243,7 +252,7 @@
 		<div class="single-device__wrap">
 			<section id="iphone6" class="silver device">
 				<div class="wrap">
-					<div class="marvel-device iphone6">
+					<div class="marvel-device iphone6 device-scaleable">
 						<div class="sleep"></div>
 						<div class="volume"></div>
 						<div class="camera"></div>
@@ -262,7 +271,7 @@
 		<div class="single-device__wrap">
 			<section id="s5" class="device">
 				<div class="wrap">
-					<div class="marvel-device s5">
+					<div class="marvel-device s5 device-scaleable">
 						<div class="top-bar"></div>
 						<div class="sleep"></div>
 						<div class="camera"></div>
@@ -283,4 +292,14 @@
 <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/vendor/vendor.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73644272-1', 'auto');
+  ga('send', 'pageview');
+</script>
 </html>

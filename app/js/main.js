@@ -36,17 +36,7 @@ grabDevices.fail(function() {
 // 1) Change Device
 $('#device-selector').change(function() {
     newDevice = this.value;
-    //updateAppView.device(newDevice);
     appState.set('device', newDevice);
-    // Determine if 
-    if (devices[newDevice]['has-landscape'] === false) {
-      var orientationToggle = $('#device-orientation');
-      appUI.disableToggle(orientationToggle);
-    } else if (devices[newDevice]['has-landscape'] === true) {
-      var orientationToggle = $('#device-orientation');
-      appUI.enableToggle(orientationToggle);
-    }
-   
 });
 // 2) Change Device Orientation
 $('#device-orientation').change(function() {
@@ -56,7 +46,6 @@ $('#device-orientation').change(function() {
     newOrientation = 'portrait'
   }
   appState.set('orientation', newOrientation);
-  console.log('new orientation is ' + newOrientation);
 });
 // 3) Change Scroll Type
 $('#scroll-option').change(function() {
@@ -121,6 +110,12 @@ $('#page-background-color').change(function() {
   appState.set('bGColor', newColor);
 });
 
+$('#device-scale').change(function() {
+  newScale = this.value;
+  appState.set('deviceScale', newScale);
+  console.log(newScale);
+});
+
 /* =========================================
  *
  * App State
@@ -134,6 +129,7 @@ var appState = (function() {
   var model = {
     device: "macbook",
     deviceColor: "#fff",
+    deviceScale: "1",
     orientation: "portait",
     scrollType: "scroll",
     //screenshotWidth: null,
@@ -195,7 +191,6 @@ var appState = (function() {
   // Functions sets new appState
   function set(paramater, value) {
     model[paramater] = value;
-
     // eg - parameter is scrollType
     // eg - value is landscape
     // Updates AppView based on naming functions after their respective paramater name
@@ -240,6 +235,7 @@ var appState = (function() {
 var updateAppView = (function() {
   // Sets the active device in the UI
   function device(device) {
+    updateAppView.checkOrientationProp(device);
     appState.updateModel('device', device);
     //console.log(device);
     var deviceDetails = $('.selected-device__details');
@@ -259,6 +255,26 @@ var updateAppView = (function() {
   function deviceColor(color) {
     appState.updateModel('deviceColor', color);
   }
+  //Sets the device scale in the UI
+  function deviceScale(scale) {
+    if (scale >= 1.1) {
+      alert('Please enter a value less than 1.0');
+    } else {
+      $('.device-scaleable').css('transform', 'scale(' + scale + ')');
+      appState.updateModel('deviceScale', scale);
+    }
+  }
+
+  // Check deviceOrientation
+  function checkOrientationProp(selectedDevice) {
+    var orientationToggle = $('#device-orientation');
+    var hasOrientation = devices[selectedDevice]['has-landscape'];
+    if (hasOrientation === false) {
+      appUI.disableToggle(orientationToggle);
+    } else {
+      appUI.enableToggle(orientationToggle);
+    }
+  } 
   // Sets the active device orientation in the UI
   function orientation(currentOrientation) {
     appState.updateModel('orientation', currentOrientation);
@@ -334,6 +350,8 @@ var updateAppView = (function() {
   return {
     device: device,
     deviceColor: deviceColor,
+    deviceScale: deviceScale,
+    checkOrientationProp: checkOrientationProp,
     orientation: orientation,
     scrollType: scrollType,
     bGColor: bGColor,

@@ -18,6 +18,19 @@ input[type="text"] {
   }
 }
 
+input[type="number"] {
+  border: 3px solid #F5F5F5;
+  border-radius: 6px;
+  background-color: #F5F5F5;
+  transition: $transition;
+  outline: none;
+  font-size: 10px;
+
+  &:focus {
+    border: 3px solid $link-color;
+  }
+}
+
 input[type="button"] {
   -webkit-appearance: none;
   -moz-appearance: none;
