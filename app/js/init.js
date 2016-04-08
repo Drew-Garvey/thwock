@@ -70,3 +70,12 @@ var appInit = (function() {
     set: set
   };
 })();
+
+var landingUI = (function() {
+  // Init Smooth Scroll
+  var SmoothScroll = (function() {
+    // Set it off
+    smoothScroll.init();
+    console.log('working????');
+  })();
+})();

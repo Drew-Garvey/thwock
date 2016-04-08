@@ -1,10 +1,14 @@
 
+h1, h2, h3, h4 {
+  font-family: $grotesk-bold;
+}
+
+
 h1 {
   font-size: 68px;
   line-height: 88px;
   margin-top: 44px;
   margin-bottom: 22px;
-  font-weight: 700;
 }
 
 h2 {
@@ -12,8 +16,6 @@ h2 {
   line-height: 44px;
   margin-top: 44px;
   margin-bottom: 22px;
-  font-weight: 700;
-  letter-spacing: -1px;
 }
 
 h3 {
@@ -21,8 +23,6 @@ h3 {
   line-height: 44px;
   margin-top: 22px;
   margin-bottom: 22px;
-  font-weight: 700;
-  letter-spacing: -1px;
 }
 
 h4 {
@@ -30,8 +30,6 @@ h4 {
   line-height: 22px;
   margin-top: 22px;
   margin-bottom: 22px;
-  font-weight: 700;
-  //letter-spacing: -1px;
 }
 
 //p, ul, ol, pre, table, blockquote {

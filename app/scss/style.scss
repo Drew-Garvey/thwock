@@ -11,11 +11,12 @@
 /*---------------------------------------
 * Base Styles
 *---------------------------------------*/
+@import 'base/ss-gizmo';
+@import 'base/grotesk';
 @import 'base/normalize';
 @import 'base/mixins';
 @import 'base/typography';
 @import 'base/forms';
-@import 'base/ss-gizmo';
 @import 'base/device-base';
 
 /*---------------------------------------

@@ -18,31 +18,32 @@
 	    <div class="FeatureBlock-content c-c">
 	      <h1>Thwock</h1>
 	      <p>Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+	      <a class="btn" href="#GetThwockin" data-scroll>Get Thwockin!</a>
 	    </div>
 	  </div>
 	</section>
 	<!-- END: Feature Block -->
 	<!-- Get Thwockin -->
-	<section class="GetThwockin">
+	<section class="GetThwockin" id="GetThwockin">
 		<!-- END: Get Thwockin inner -->
 		<div class="GetThwockin__inner">
 			<!-- Input Group -->
 		  <div class="InputGroup">
 				<!-- Input URL -->
 		    <div class="InputGroup__URL">
-		      <h3>Enter URL</h3>
-		      <input class="thwock__URL" type="text" id="thwock_url" placeholder="Enter Website URL">
+		      <h3>Create</h3>
+		      <input class="thwock__URL" type="text" id="thwock_url" placeholder="Enter URL">
 		    </div>
 				<!-- END: Input URL -->
 				<!-- Device Selection -->
-				<h3>Choose a Device</h3>
+				<h3>Device</h3>
 		    <div class="InputGroup__Radio">
 
 					<div class="DeviceWrap">
 						<div class="DeviceWrap__inner">
 				      <label class="deviceSelection">
 				        <input class="device__selector" type="radio" name="deviceSelection" id="SelectBrowser" value="browser">
-				        <label class="deviceSelection__icon" for=""></label>
+				        <label class="deviceSelection__icon" id="browser-icon" for="browser"><img src="img/browser.svg" alt=""></label>
 				        <span class="selection__name">Browser</span>
 				      </label>
 				    </div>
@@ -52,8 +53,8 @@
 						<div class="DeviceWrap__inner">
 				      <label class="deviceSelection">
 				        <input class="device__selector" type="radio" name="deviceSelection" id="SelectMacBookPro" value="macbook">
-				        <label class="deviceSelection__icon" for=""></label>
-				        <span class="selection__name">Macbook Pro</span>
+				        <label class="deviceSelection__icon" id="macbook-icon" for="macbook"><img src="img/macbook.svg" alt=""></label>
+				        <span class="selection__name">Macbook</span>
 				      </label>
 						</div>
 			    </div>
@@ -62,7 +63,7 @@
 						<div class="DeviceWrap__inner">
 				      <label class="deviceSelection">
 				        <input class="device__selector" type="radio" name="deviceSelection" id="SelectIpad" value="iPad">
-				        <label class="deviceSelection__icon" for=""></label>
+				        <label class="deviceSelection__icon" id="iPad-icon" for="iPad"><img src="img/ipad.svg" alt=""></label>
 				        <span class="selection__name">iPad</span>
 				      </label>
 				    </div>
@@ -72,7 +73,7 @@
 						<div class="DeviceWrap__inner">
 				      <label class="deviceSelection">
 				        <input class="device__selector" type="radio" name="deviceSelection" id="SelectiPhone6" value="iPhone">
-				        <label class="deviceSelection__icon" for=""></label>
+				        <label class="deviceSelection__icon" id="iPhone-icon" for="iPhone"><img src="img/iphone.svg" alt=""></label>
 				        <span class="selection__name">iPhone 6</span>
 				      </label>
 				    </div>
@@ -82,8 +83,8 @@
 						<div class="DeviceWrap__inner">
 				      <label class="deviceSelection">
 				        <input class="device__selector" type="radio" name="deviceSelection" id="SelectGalaxy5" value="samsung-galaxy">
-				        <label class="deviceSelection__icon" for=""></label>
-				        <span class="selection__name">Samsung Galaxy 5</span>
+				        <label class="deviceSelection__icon" id="#galaxy-icon" for="samsung-galaxy"><img src="img/galaxy-5.svg" alt=""></label>
+				        <span class="selection__name">Galaxy 5</span>
 				      </label>
 				    </div>
 			    </div>
@@ -91,7 +92,7 @@
 				<!-- END: Device Selection -->
 				<!-- Submit Button -->
 				<div class="InputGroup__Submit">
-		    	<a href="http://thwock.com" id="getThwocking" class="btn">Get Thwockin!</a>
+		    	<a href="http://thwock.com" id="getThwocking" class="btn">Thwock It!</a>
 				</div>
 				<!-- END: Submit Button -->
 		  </div>
@@ -111,7 +112,7 @@
 <!-- END: Body -->
 <!-- Scripts -->
 <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="js/vendor/vendor.js"></script>
+<script type="text/javascript" src="js/vendor/vendorLanding.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
 <!-- <script type="text/javascript" src="js/main.js"></script> -->
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

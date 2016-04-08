@@ -20,7 +20,7 @@
   top: 50%;
   left: 50%;
   width: 65%;
-  border-radius: 6px;
+  border-radius: $border-radius;
   overflow: hidden;
   //max-width: 630px;
   //min-width: 320px;
@@ -119,8 +119,17 @@
 }
 
 .file-submission input[type="text"] {
-  border: 3px solid #F5F5F5;
-  background-color: #F5F5F5;
+  border: 0;
+  border-bottom: $border;
+  background-color: #fff;
+
+  &:hover {
+    border-bottom: 2px solid $thwock-blue;
+  }
+
+  &:focus {
+    border-bottom: 2px solid $thwock-blue;
+  }
 }
 
 .file-submission .external-file__wrap {

@@ -2,11 +2,8 @@
 @import 'base/mixins';
 
 /*
-//
-//
+//  Local Variables
 // ------------------------------------------*/
-
-
 
 html {
   box-sizing: border-box;
@@ -22,12 +19,13 @@ html {
 
 
 body{
-  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: $grotesk-regular;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   //font-size: 14px;
   text-align: center;
   color: #1e1e1e;
+  overflow-x: hidden;
 }
 
 html, body {
@@ -173,9 +171,10 @@ section .wrap {
 }
 
 .option-label {
+  font-family: $grotesk-bold;
   margin-bottom: 0.5rem;
   font-size: 12px;
-  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 .update-screengrab-btn {
@@ -183,8 +182,8 @@ section .wrap {
 }
 
 .btn .btn-label {
+  font-family: $grotesk-bold;
   font-size: 0.5rem;
-  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
   line-height: 1;
