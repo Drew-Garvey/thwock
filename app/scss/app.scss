@@ -1,6 +1,13 @@
 @import 'base/variables';
 @import 'base/mixins';
 
+/*
+//
+//
+// ------------------------------------------*/
+
+
+
 html {
   box-sizing: border-box;
 }
@@ -86,12 +93,12 @@ section .wrap {
 .global-header {
   width: 100%;
   //height: 97px;
-  border-bottom: 3px solid $medium-grey;
+  border-bottom: $border;
   background-color: $header-color;
 }
 
 .global-nav {
-  height: 97px;
+  height: 77px;
 
   @include media($lg) {
     height: auto;
@@ -136,10 +143,10 @@ section .wrap {
 .menu__option {
   float: left;
   width: 25%;
-  height: 97px;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  border-right: 3px solid $medium-grey;
+  height: 77px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-right: 2px solid $medium-grey;
 
   @include media($lg) {
     float: none;
@@ -166,13 +173,13 @@ section .wrap {
 }
 
 .option-label {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   font-size: 12px;
   font-weight: 700;
 }
 
 .update-screengrab-btn {
-  margin: 1.2rem 0.5rem;
+  margin: 0.65rem 0.5rem;
 }
 
 .btn .btn-label {
@@ -198,7 +205,7 @@ section .wrap {
   float: right;
   display: inline-block;
   width: 25%;
-  height: 97px;
+  height: 77px;
   padding: 1rem 5%;
 
   @include media($md) {
@@ -212,7 +219,7 @@ section .wrap {
   float: left;
   display: inline-block;
   width: 25%;
-  height: 97px;
+  height: 77px;
   padding-top: 1rem;
   padding-bottom: 1rem;
 

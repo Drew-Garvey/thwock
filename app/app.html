@@ -1,0 +1,307 @@
+<html>
+<head>
+	<title>Thwock | An Interactive Sample Tool</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+	<!-- MAIN HEADER -->
+	<header class="global-header cf">
+		<!-- PRIMARY NAV -->
+		<nav class="global-nav">
+			<!-- DEVICE SELECTOR -->
+			<div class="menu__option device__option">
+				<p class="option-label">Device</p>
+				<label class="select" for="device-selector">
+					<select name="device-selector" id="device-selector">
+						<option value="macbook">Macbook Pro (1280 x 800)</option>
+						<option value="browser">Browser (1400 x 935)</option>
+						<option value="iPad">iPad (1024 x 768)</option>
+						<option value="iPhone">iPhone 6 (667 x 375)</option>
+						<option value="samsung-galaxy">Samsung Galaxy 5 (568 x 320)</option>
+					</select>
+				</label>
+			</div>
+			<!-- END: DEVICE SELECTOR -->
+			<!-- DEVICE ORIENTATION TOGGLE -->
+			<div class="menu__option">
+				<p class="option-label">Device Orientation</p>
+				<div class="switch orientation-toggle">
+					<small class="switch-label label-a">portrait</small>
+	  			<input id="device-orientation" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+	  			<label for="device-orientation"></label>
+	  			<small class="switch-label label-b">landscape</small>
+				</div>
+			</div>
+			<!-- END: DEVICE ORIENTATION TOGGLE -->
+			<!-- COLOR OPTION -->
+			<div class="menu__option quarter-width">
+				<p class="option-label">Color</p>
+				<div class="color-option__wrap">
+					<input class="color-input" type="text" id="page-background-color" placeholder="Enter HEX value">
+					<label class="color-label" for="page-background-color">Background</label>
+				</div>
+				<!-- Commenting out until support is added
+				<div class="color-option__wrap">
+					<label class="color-label" for="device-background-color">Device</label>
+					<input class="color-input" type="text" id="device-background-color" placeholder="Enter HEX value">
+				</div>
+				-->
+				<!--
+				<p class="option-label">Scroll Type</p>
+				<div class="switch scroll-toggle">
+					<small class="switch-label label-a">Scroll</small>
+	  			<input id="scroll-option" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" value="scroll-on">
+	  			<label for="scroll-option"></label>
+	  			<small class="switch-label label-b">Overflow</small>
+				</div>
+				-->
+			</div>
+			<!-- END: COLOR OPTION -->
+			<!-- DEVICE SCALE -->
+			<div class="menu__option quarter-width">
+				<p class="option-label">Device Scale</p>
+				<div class="device-scale">
+	  			<input type="number" id="device-scale" name="device-scale" value="1" placeholder="1.0" step=".1" min="0" max="1">
+	  			<label for="device-orientation"></label>
+				</div>
+			</div>
+			<!-- END: DEVICE SCALE -->
+			<!-- SCREEN OPTIONS MODEL BUTTON -->
+			<button class="btn update-screengrab-btn md-trigger" data-modal="modal-1">
+				<i class="btn-icon ss-picture"></i>
+				<p class="btn-label">Screen</p>
+			</button>
+			<button class="btn update-screengrab-btn md-trigger" data-modal="modal-2">
+				<i class="btn-icon ss-logout"></i>
+				<p class="btn-label">Share</p>
+			</button>
+		</nav>
+		<!-- END: PRIMARY NAV -->
+	</header>
+	<!-- END: MAIN HEADER -->
+	
+	<!-- UPDATE SCREENGRAB MODEL -->
+	<div class="md-modal md-effect-1" id="modal-1">
+    <div class="md-content">
+			<div class="md-closeWrapper"> <i class="md-close ss-delete"></i></div>
+    	<div id="modal-1-target">
+				<ul class="accordion-tabs-minimal">
+				  <li class="tab-header-and-content">
+				    <a href="#" class="tab-link is-active">Live URL</a>
+				    <div class="tab-content">
+							<div class="file-submission">
+								<div class="external-file__wrap">
+									<h4>Enter URL</h4>
+									<input type="text" id="external-file__input" placeholder="Enter Website URL">
+								</div>
+								<div class="button__wrap">
+									<button class="btn view-screengrab external-url-sub">Go!</button>
+								</div>
+						   </div>
+				 		</div>
+				  </li>
+				  <li class="tab-header-and-content">
+				    <a href="#" class="tab-link">Screenshot</a>
+				    <div class="tab-content">
+							<div class="file-submission">
+								<div class="local-file__wrap">
+									<h4>Load from Computer</h4>
+									<label class="file" for="local-file__input">
+										<input type="file" id="local-file__input" value="">
+										<span class="file-custom"></span>
+									</label>
+								</div>
+								<div class="button__wrap">
+									<button class="btn view-screengrab local-file-sub">Go!</button>
+								</div>
+						   </div>
+				    </div>
+				  </li>
+				</ul>
+      </div> <!-- End: modal-target-1 -->
+		</div>
+  </div>
+	<!-- SHARE MODEL -->
+  <div class="md-modal md-effect-1" id="modal-2">
+    <div class="md-content">
+			<div class="md-closeWrapper"><i class="md-close ss-delete"></i></div>
+    	<div id="modal-2-target">
+				<ul class="accordion-tabs-minimal">
+				  <li class="tab-header-and-content">
+				    <a href="#" class="tab-link is-active">Share URL</a>
+				    <div class="tab-content">
+							<div class="file-submission">
+								<div class="external-file__wrap">
+									<h4>Share URL</h4>
+									<input type="text" id="share-URL" name="share-URL" value="" placeholder="Enter Website URL">
+								</div>
+								<div class="button__wrap">
+									<button class="btn copy-url" data-clipboard-target="#share-URL">Copy to Clipboard</button>
+								</div>
+						   </div>
+				 		</div>
+				  </li>
+				  <li class="tab-header-and-content">
+				    <a href="#" class="tab-link">Export Screenshot</a>
+				    <div class="tab-content">
+							<div class="text-content__wrap">
+								<div class="screenshot-steps__wrap">
+									<h4>To Export a Screenshot</h4>
+									<div class="screenshot-steps">
+										<div class="step__row">
+											<div class="step__headline">
+												<h5>Step 1</h5>
+											</div>
+											<div class="step__instructions">
+												<p>Change the background color to a color that contrast strongly with the screen view. Think bright greens or blues.</p>
+											</div>
+										</div>
+										<div class="step__row">
+											<div class="step__headline">
+												<h5>Step 2</h5>
+											</div>
+											<div class="step__instructions">
+												<p>Grab a screenshot(command + shift + 4) of your selected device.</p>
+											</div>
+										</div>
+										<div class="step__row">
+											<div class="step__headline">
+												<h5>Step 3</h5>
+											</div>
+											<div class="step__instructions">
+												<p>Open the screenshot in your photo editor such as Photoshop or Keynote to remove the colored background you set in step 1. In Photoshop you can remove the background using the <a href="http://www.jgreenwalt.com/archives/removing-a-background-with-quick-selection-and-refine-edge-in-photoshop" target="_blank">quick selection tool</a>. If you’re using Keynote you can achieve this using the <a href="http://isupport.com.au/osx-mac-tutorials/remove-backgrounds-easily-with-a-hidden-gem-inside-keynote/" target="_blank">alpha tool</a>.</p>
+											</div>
+										</div>
+										<div class="step__row">
+											<div class="step__headline">
+												<h5>Step 4</h5>
+											</div>
+											<div class="step__instructions">
+												<p>Export and enjoy!</p>
+											</div>
+										</div>
+									</div>
+								</div>
+						   </div>
+				    </div>
+				  </li>
+				</ul>
+      </div> <!-- End: modal-target-2 -->
+		</div>
+  </div>
+  <!-- END: SHARE MODEL -->
+	<div class="md-overlay"></div>
+	<!-- END: UPDATE SCREENGRAB MODEL -->
+
+	<!-- DEVICE SECTION -->
+	<section class="device__wrap">
+		<!-- BROWSER WINDOW -->
+		<div class="single-device__wrap">
+			<section id="browser" class="device">
+				<div class="wrap">
+					<div class='browser-window device-scaleable'>
+			  	  <div class='top-bar'>
+			  	    <div class='circles'>
+			  	       <div class="circle circle-red"></div>
+			  	       <div class="circle circle-yellow"></div>
+			  	       <div class="circle circle-green"></div>
+			  	    </div>
+			  	  </div>
+			  	  <div class='screen scroll'>
+			  	  	<img class="screenshot" src="img/get-started.png" />
+			  	  </div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<!-- END: BROWSER WINDOW -->
+		<!-- MACBOOK PRO -->
+		<div class="single-device__wrap">
+			<section id="macbook" class="black device">
+				<div class="wrap">
+					<div class="marvel-device macbook device-scaleable">
+						<div class="top-bar"></div>
+						<div class="camera"></div>
+						<div class="screen scroll">
+			        <img class="screenshot" src="img/01-Home@2x.png"> 
+			      </div>
+						<div class="bottom-bar"></div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<!-- END: MACKBOOK PRO -->
+		<!-- IPAD -->
+		<div class="single-device__wrap">
+			<section id="ipad" class="silver device">
+				<div class="wrap">
+					<div class="marvel-device ipad silver device-scaleable">
+						<div class="camera"></div>
+						<div class="screen scroll">
+							<img class="screenshot" src="img/01-Home@2x.png">
+						</div>
+						<div class="home"></div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<!-- END: IPAD -->
+		<!-- IPHONE 6 -->
+		<div class="single-device__wrap">
+			<section id="iphone6" class="silver device">
+				<div class="wrap">
+					<div class="marvel-device iphone6 device-scaleable">
+						<div class="sleep"></div>
+						<div class="volume"></div>
+						<div class="camera"></div>
+						<div class="sensor"></div>
+						<div class="speaker"></div>
+						<div class="screen scroll">
+							<img class="screenshot" src="img/01-Home@2x.png">
+						</div>
+						<div class="home"></div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<!-- END: IPHONE 6 -->
+		<!-- SAMSUNG GALAXY 5 -->
+		<div class="single-device__wrap">
+			<section id="s5" class="device">
+				<div class="wrap">
+					<div class="marvel-device s5 device-scaleable">
+						<div class="top-bar"></div>
+						<div class="sleep"></div>
+						<div class="camera"></div>
+						<div class="sensor"></div>
+						<div class="speaker"></div>
+						<div class="screen scroll">
+							<img class="screenshot" src="img/01-Home@2x.png">
+						</div>
+						<div class="home"></div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<!-- END: SAMSUNG GALAXY 5 -->
+	</section>
+	<!-- END: DEVICE SECTION -->
+</body>
+<script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/vendor/vendor.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73644272-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</html>

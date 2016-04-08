@@ -1,3 +1,7 @@
+/*
+//
+//
+// ------------------------------------------*/
 html {
   box-sizing: border-box; }
 
@@ -30,7 +34,8 @@ body {
 html, body {
   height: 100%; }
 
-.cf:before, .cf:after {
+.cf:before,
+.cf:after {
   content: " ";
   display: table; }
 
@@ -70,11 +75,11 @@ section .wrap {
 
 .global-header {
   width: 100%;
-  border-bottom: 3px solid #dddddd;
+  border-bottom: 2px solid #dddddd;
   background-color: #fff; }
 
 .global-nav {
-  height: 97px; }
+  height: 77px; }
   @media screen and (max-width: 999px) {
     .global-nav {
       height: auto; } }
@@ -111,10 +116,10 @@ section .wrap {
 .menu__option {
   float: left;
   width: 25%;
-  height: 97px;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  border-right: 3px solid #dddddd; }
+  height: 77px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-right: 2px solid #dddddd; }
   @media screen and (max-width: 999px) {
     .menu__option {
       float: none;
@@ -136,12 +141,12 @@ section .wrap {
       border-bottom: 3px solid #dddddd; } }
 
 .option-label {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   font-size: 12px;
   font-weight: 700; }
 
 .update-screengrab-btn {
-  margin: 1.2rem 0.5rem; }
+  margin: 0.65rem 0.5rem; }
 
 .btn .btn-label {
   font-size: 0.5rem;
@@ -157,13 +162,13 @@ section .wrap {
   display: inline-block; }
 
 .active {
-  color: #62C612; }
+  color: #dddddd; }
 
 .menu__option-right {
   float: right;
   display: inline-block;
   width: 25%;
-  height: 97px;
+  height: 77px;
   padding: 1rem 5%; }
   @media screen and (max-width: 720px) {
     .menu__option-right {
@@ -175,7 +180,7 @@ section .wrap {
   float: left;
   display: inline-block;
   width: 25%;
-  height: 97px;
+  height: 77px;
   padding-top: 1rem;
   padding-bottom: 1rem; }
   @media screen and (max-width: 720px) {

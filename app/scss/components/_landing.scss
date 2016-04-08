@@ -1,0 +1,104 @@
+/* =================================================
+//
+// Landing Page
+//
+// ================================================= */
+
+
+
+/* Get Thwocking Section
+----------------------------------*/
+.GetThwockin {
+  @include make-container();
+  margin-top: $base-block / 2;
+
+  @include media-breakpoint-up(md) {
+    margin-top: $base-block;
+  }
+}
+
+.GetThwockin__inner {
+  //@include make-row;
+}
+
+.InputGroup {
+  @include make-row();
+  //@include make-col();
+  //@include make-col-span(12);
+}
+
+/* Thwock URL
+----------------------------------*/
+
+.InputGroup__URL {
+  margin-bottom: $base-block;
+}
+
+.thwock__url {
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Device Selection
+----------------------------------*/
+
+.InputGroup__Radio {
+  @include clearfix;
+  margin-bottom: $base-block;
+}
+
+.InputGroup__Submit {
+  margin-bottom: $base-block;
+}
+
+.DeviceWrap {
+  @include make-col();
+  @include media-breakpoint-up(md) {
+    width: 20%;
+  }
+}
+
+.DeviceWrap__inner {
+  position: relative;
+  padding-bottom: 100%;
+}
+
+.deviceSelection {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #F3F3F3;
+  }
+}
+
+.deviceSelection .device__selector {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  clip: rect(0, 0, 0, 0);
+  clip: rect(0 0 0 0);
+}
+
+.deviceSelection .selection__name {
+  @include centerer(true,false);
+  left: 50%;
+  bottom: 16px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Footer
+----------------------------------*/
+.Footer {
+  margin-bottom: $base-block;
+}
