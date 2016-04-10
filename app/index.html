@@ -13,12 +13,18 @@
 <!-- START: Page Container -->
 <div class="page">
 	<!-- Feature Block -->
-	<section class="FeatureBlock">
+	<section class="FeatureBlock imgBkg">
 	  <div class="FeatureBlock-wrapper">
 	    <div class="FeatureBlock-content c-c">
-	      <h1>Thwock</h1>
-	      <p>Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-	      <a class="btn" href="#GetThwockin" data-scroll>Get Thwockin!</a>
+	    	<div class="logo__wrap">
+	    		<img src="img/logo.svg" alt="Thwock" class="logo">
+	    	</div>
+	      <h1 class="page__header">Thwock</h1>
+	      <p class="page__intro">Maecenas sed diam eget risus varius blandit sit amet non magna. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cam sociis natoque penatibus et magnis.</p>
+	      <a class="btn get__thwockin" href="#GetThwockin" data-scroll>Get Thwockin!</a>
+	      <div class="heroArrow__wrap">
+	      	<img class="heroArrow" src="img/arrow.svg" alt="">
+	      </div>
 	    </div>
 	  </div>
 	</section>
@@ -32,9 +38,13 @@
 				<!-- Input URL -->
 		    <div class="InputGroup__URL">
 		      <h3>Create</h3>
+		      <p class="description">Start by copying and pasting the URL to the project that you’d like to present in the form field below</p>
 		      <input class="thwock__URL" type="text" id="thwock_url" placeholder="Enter URL">
 		    </div>
 				<!-- END: Input URL -->
+				<div class="arrowWrap">
+					<img src="img/arrow-blue.svg" alt="" class="arrow">
+				</div>
 				<!-- Device Selection -->
 				<h3>Device</h3>
 		    <div class="InputGroup__Radio">
@@ -92,7 +102,7 @@
 				<!-- END: Device Selection -->
 				<!-- Submit Button -->
 				<div class="InputGroup__Submit">
-		    	<a href="http://thwock.com" id="getThwocking" class="btn">Thwock It!</a>
+		    	<a href="http://thwock.com" id="getThwocking" class="btn thwockIt">Thwock It!</a>
 				</div>
 				<!-- END: Submit Button -->
 		  </div>
@@ -103,7 +113,8 @@
 	<!-- END: Get Thwockin -->
 	<!-- Footer-->
 	<section class="Footer">
-		<p>A product by <a href="">ripe</a></p>
+		<p class="credit left">Set in Grotesk by <a class="credit__link" href="http://mediumextrabold.com/" target="_blank">MediumExtraBold</a></p>
+		<p class="credit right">Tool by <a class="credit__link" href="http://ripe.com/" target="_blank">ripe</a></p>
 	</section>
   <!-- END: Footer-->
 </div>

@@ -4,7 +4,8 @@
 
 // Sizing
 $feature-block-mobile-width: 70%;
-$feature-block-width: 40%;
+$feature-block-width: 60%;
+$feature-block-max-wdith: 700px;
 $feature-block-height: 100vh;
 $feature-block-min-height: 600px;
 
@@ -41,7 +42,7 @@ $Content-color: #fff;
 }
 
 .featureBlock.imgBkg {
-  background-image: url(http://www.fillmurray.com/g/1200/900);
+  background-image: url('../img/pattern.svg');
   background-position: center;
   background-size: cover;
 }
@@ -134,3 +135,67 @@ $Content-color: #fff;
     margin-right: $feature-block-spacing;
   }
 }
+
+/*
+// Feature Content
+//-----------------------------------------------------*/
+
+.page__header {
+  font-size: 60;
+  margin-top: 32px;
+  margin-bottom: 16px;
+
+  @include media-breakpoint-up(sm) {
+    font-size: 80px;
+    margin-top: 44px;
+    margin-bottom: 22px;
+  }
+}
+
+.page__intro {
+  font-size: 22px;
+  line-height: 1.2;
+
+  @include media-breakpoint-up(sm) {
+    font-size: 28px;
+  }
+}
+
+.get__thwockin {
+  display: inline-block;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  color: #fff;
+  transition: all $t-speed-fast;
+  
+  @include media-breakpoint-up(sm) {
+    margin-top: 40px;
+    font-size: 22px;
+    margin-bottom: 40px;
+  }
+
+  &:hover {
+    color: $thwock-blue;
+    background-color: #fff;
+    border: 2px solid #fff;
+  }
+}
+
+.heroArrow {
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+

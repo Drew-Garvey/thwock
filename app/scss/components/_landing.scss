@@ -13,7 +13,7 @@
   margin-top: $base-block / 2;
 
   @include media-breakpoint-up(md) {
-    margin-top: $base-block * 2;
+    margin-top: $base-block;
   }
 }
 
@@ -32,6 +32,23 @@
 
 .InputGroup__URL {
   margin-bottom: $base-block;
+  margin-left: 20px;
+  margin-right: 20px;
+
+  @include media-breakpoint-up(sm) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.description {
+  color: $dark-grey;
+
+  @include media-breakpoint-up(sm) {
+    font-size: 18px;
+    margin-top: 16px;
+    margin-bottom: 100px;
+  }
 }
 
 .thwock__url {
@@ -42,9 +59,17 @@
 /* Device Selection
 ----------------------------------*/
 
+.arrowWrap {
+  margin-bottom: 70px;
+}
+
 .InputGroup__Radio {
   @include clearfix;
   margin-bottom: $base-block;
+
+  @include media-breakpoint-up(sm) {
+    margin-top: 70px;
+  }
 }
 
 .InputGroup__Submit {
@@ -53,9 +78,13 @@
 
 .DeviceWrap {
   @include make-col();
-  width: 100%;
+  width: 60%;
+  float: none;
+  margin: 15px auto;
   @include media-breakpoint-up(sm) {
+    float: left;
     width: 20%;
+    margin: 0;
   }
 }
 
@@ -70,17 +99,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-
-/*
-  &::after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    //background-color: #F3F3F3;
-    border: 2px solid #F3F3F3;
-  }
-  */
 }
 
 .deviceSelection .device__selector {
@@ -103,6 +121,10 @@
     //background-color: #F3F3F3;
     border: 2px solid #F3F3F3;
     transition: border $t-speed-fast;
+  }
+
+  &:hover {
+    border: 2px solid $thwock-blue;
   }
 }
 
@@ -133,7 +155,7 @@
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0;
+    left: -1px;
     display: inline-block;
     width: 0;
     height: 3px;
@@ -148,9 +170,53 @@
   }
 }
 
+.thwockIt {
+  color:  $thwock-blue;
+  border-color: $thwock-blue;
+  font-size: 18px;
+  transition: all $t-speed-fast;
+
+  @include media-breakpoint-up(sm) {
+    font-size: 22px;
+  }
+
+  &:hover {
+    color: #fff;
+    background-color: $thwock-blue;
+    border-color: $thwock-blue;
+  }
+}
+
 
 /* Footer
 ----------------------------------*/
 .Footer {
+  @include make-container();
+  margin-top: $base-block;
   margin-bottom: $base-block;
+}
+
+.credit {
+  color: $dark-grey;
+  margin: 1em 0;
+}
+
+.credit.left {
+  @include media-breakpoint-up(sm) {
+    float: left;
+    padding-left: 15px;
+  }
+}
+
+.credit.right {
+  @include media-breakpoint-up(sm) {
+    float: right;
+    padding-right: 15px;
+  }
+}
+
+.credit__link {
+  font-family: $grotesk-bold;
+  text-decoration: none;
+  color: $black;
 }
