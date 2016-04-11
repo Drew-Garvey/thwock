@@ -5,7 +5,7 @@
 // Sizing
 $feature-block-mobile-width: 70%;
 $feature-block-width: 60%;
-$feature-block-max-wdith: 700px;
+$feature-block-max-wdith: 780px;
 $feature-block-height: 100vh;
 $feature-block-min-height: 600px;
 
@@ -76,6 +76,7 @@ $Content-color: #fff;
 .FeatureBlock-content {
   position: absolute;
   width: $feature-block-mobile-width;
+  max-width: $feature-block-max-wdith;
   color: $Content-color;
 
   @include media-breakpoint-up(sm) {

@@ -148,6 +148,7 @@ var appState = (function() {
       console.log("Im not a default version of app!");
       //
       model = currentModelbyURL();
+      document.getElementById("share-URL").value = window.location;
       console.log(model);
     } 
     // initialize app view by kicking off each paramater
@@ -158,7 +159,7 @@ var appState = (function() {
     }
   }
   // Decode json to URL string
-  function jsonToURI(json) { 
+  function jsonToURI(json) {
     return encodeURIComponent(JSON.stringify(json)).replace(/%5B/g, '[').replace(/%5D/g, ']'); 
   }
   // Encode URL string to json object

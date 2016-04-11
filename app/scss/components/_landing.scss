@@ -130,7 +130,7 @@
 
 .deviceSelection__icon img {
   @include centerer(true,true);
-  width: 60%;
+  width: 62%;
   pointer-events: none;
 }
 
@@ -204,14 +204,14 @@
 .credit.left {
   @include media-breakpoint-up(sm) {
     float: left;
-    padding-left: 15px;
+    //padding-left: 15px;
   }
 }
 
 .credit.right {
   @include media-breakpoint-up(sm) {
     float: right;
-    padding-right: 15px;
+    //padding-right: 15px;
   }
 }
 
