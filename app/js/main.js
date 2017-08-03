@@ -319,7 +319,7 @@ var updateAppView = (function() {
     if(appState.currentModelbyURL().isIframe === "true") {
       // Check if user included http prefix, if not add it
       if (screenViewURL.indexOf('http://') === -1 && screenViewURL.indexOf('https://') === -1) {
-        screenViewURL = 'http://' + screenViewURL;
+        screenViewURL = '//' + screenViewURL;
         console.log('new screen location is ==> ' + screenViewURL);
       }
       // If a screenshot already exsist, delete it before adding iframe
