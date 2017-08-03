@@ -31,10 +31,9 @@ gulp.task('jade', function() {
 // BrowserSync
 gulp.task('browser-sync', function() {
     browserSync({
-        server: {
-            baseDir: "./app",
-            index: "index.html"
-        },
+        proxy: "thwock.dev",
+        host: "thwock.dev",
+        port: "3000",
         open: "external",
         logPrefix: "Gulp Interactive Sample Tool"
     });
@@ -48,8 +47,8 @@ gulp.task('watch-js', function() {
       }));
 });
 
-gulp.task('watch-html', function() {
-  gulp.src('./app/*.html')
+gulp.task('watch-php', function() {
+  gulp.src('./app/*.php')
       .pipe(browserSync.reload({
         stream: true,
         once: true
@@ -61,7 +60,7 @@ gulp.task('watch', function() {
     //gulp.watch('src/jade/*.jade', ['jade']);
     gulp.watch('app/scss/**/*.scss', ['sass']);
     gulp.watch('app/js/*.js', ['watch-js']);
-    gulp.watch('app/*.html', ['watch-html']);
+    gulp.watch('app/*.php', ['watch-php']);
 
     //gulp.watch('src/css/*.css', ['build']);
 });

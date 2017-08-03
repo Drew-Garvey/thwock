@@ -102,7 +102,7 @@
 				<!-- END: Device Selection -->
 				<!-- Submit Button -->
 				<div class="InputGroup__Submit">
-		    	<a href="http://thwock.com/app.html" id="getThwocking" class="btn thwockIt">Thwock It!</a>
+		    	<a href="/app.php" id="getThwocking" class="btn thwockIt">Thwock It!</a>
 				</div>
 				<!-- END: Submit Button -->
 		  </div>
